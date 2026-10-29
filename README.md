@@ -19,6 +19,7 @@
   <a href="https://github.com/mk-manishkandel/MacClipboard/releases/latest"><img src="https://img.shields.io/github/v/release/mk-manishkandel/MacClipboard" alt="Latest release" /></a>
   <a href="https://github.com/mk-manishkandel/MacClipboard/releases"><img src="https://img.shields.io/github/downloads/mk-manishkandel/MacClipboard/total" alt="Downloads" /></a>
   <a href="LICENSE"><img src="https://img.shields.io/github/license/mk-manishkandel/MacClipboard" alt="MIT License" /></a>
+  <a href="https://github.com/mk-manishkandel/MacClipboard/actions/workflows/ci.yml"><img src="https://github.com/mk-manishkandel/MacClipboard/actions/workflows/ci.yml/badge.svg" alt="Build and test" /></a>
 </p>
 
 ## Why MacClipboard

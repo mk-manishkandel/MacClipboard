@@ -1,0 +1,45 @@
+name: Build and test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-test:
+    runs-on: macos-26
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Select newest Xcode
+        run: |
+          XCODE="$(ls -d /Applications/Xcode*.app | sort -V | tail -1)"
+          echo "Using $XCODE"
+          sudo xcode-select -s "$XCODE"
+          xcodebuild -version
+
+      - name: Build universal app
+        run: |
+          set -o pipefail
+          xcodebuild -project Maccy.xcodeproj -scheme Maccy -configuration Release \
+            -destination 'generic/platform=macOS' -derivedDataPath build \
+            CODE_SIGN_IDENTITY="-" CODE_SIGN_STYLE=Manual DEVELOPMENT_TEAM="" ENABLE_HARDENED_RUNTIME=NO \
+            build | tail -n 20
+          lipo -archs build/Build/Products/Release/MacClipboard.app/Contents/MacOS/MacClipboard
+
+      - name: Run unit tests
+        run: |
+          set -o pipefail
+          xcodebuild test -project Maccy.xcodeproj -scheme Maccy -destination 'platform=macOS' \
+            -only-testing:MaccyTests -derivedDataPath build/test \
+            CODE_SIGN_IDENTITY="-" CODE_SIGN_STYLE=Manual DEVELOPMENT_TEAM="" ENABLE_HARDENED_RUNTIME=NO \
+            | grep -E '✔|✘|error:|Test run|TEST (SUCCEEDED|FAILED)'

@@ -25,7 +25,7 @@
 	<key>LSUIElement</key>
 	<true/>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © Alexey Rodionov</string>
+	<string>Copyright © 2026 mk-manishkandel. Based on Maccy © Alex Rodionov. MIT License.</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
 	<key>SUEnableDownloaderService</key>
@@ -40,11 +40,11 @@
 	<array>
 	<dict>
 		<key>UTTypeIdentifier</key>
-		<string>org.p0deje.Maccy.pin-reorder</string>
+		<string>com.mkmanishkandel.MacClipboard.pin-reorder</string>
 		<key>UTTypeTagSpecification</key>
 		<dict/>
 		<key>UTTypeDescription</key>
-		<string>Maccy Pin Reorder Type</string>
+		<string>MacClipboard Pin Reorder Type</string>
 		<key>UTTypeConformsTo</key>
 		<array>
 		<string>public.data</string>

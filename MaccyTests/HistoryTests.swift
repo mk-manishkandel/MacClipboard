@@ -2,7 +2,7 @@ import AppKit
 import Testing
 import Defaults
 import SwiftData
-@testable import Maccy
+@testable import MacClipboard
 
 extension SharedStateTests {
   @MainActor
@@ -101,7 +101,7 @@ extension SharedStateTests {
       ]
       let firstItem = HistoryItem()
       Storage.shared.context.insert(firstItem)
-      firstItem.application = "Maccy.app"
+      firstItem.application = "MacClipboard.app"
       firstItem.contents = firstContents
       firstItem.title = firstItem.generateTitle()
       history.add(firstItem)
@@ -114,7 +114,7 @@ extension SharedStateTests {
       ]
       let secondItem = HistoryItem()
       Storage.shared.context.insert(secondItem)
-      secondItem.application = "Maccy.app"
+      secondItem.application = "MacClipboard.app"
       secondItem.contents = secondContents
       secondItem.title = secondItem.generateTitle()
       let second = history.add(secondItem)
@@ -160,8 +160,8 @@ extension SharedStateTests {
       #expect(Set(history.items[0].item.contents) == Set(firstContents))
     }
 
-    @Test("Adding item from Maccy")
-    func addingItemFromMaccy() {
+    @Test("Adding item from MacClipboard")
+    func addingItemFromMacClipboard() {
       let firstContents = [
         HistoryItemContent(
           type: NSPasteboard.PasteboardType.string.rawValue,
@@ -180,13 +180,13 @@ extension SharedStateTests {
           value: "one".data(using: .utf8)
         ),
         HistoryItemContent(
-          type: NSPasteboard.PasteboardType.fromMaccy.rawValue,
+          type: NSPasteboard.PasteboardType.fromMacClipboard.rawValue,
           value: "".data(using: .utf8)
         )
       ]
       let second = HistoryItem()
       Storage.shared.context.insert(second)
-      second.application = "Maccy.app"
+      second.application = "MacClipboard.app"
       second.contents = secondContents
       let secondDecorator = history.add(second)
 

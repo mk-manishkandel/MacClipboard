@@ -20,7 +20,7 @@ private struct HistoryItemQuery {
 }
 
 @MainActor
-class MaccyUITests: XCTestCase {
+class MacClipboardUITests: XCTestCase {
   let app = XCUIApplication()
   let pasteboard = NSPasteboard.general
 
@@ -601,7 +601,7 @@ class MaccyUITests: XCTestCase {
       .max { ($0.launchDate ?? .distantPast) < ($1.launchDate ?? .distantPast) }?
       .processIdentifier
     guard let pid else {
-      XCTFail("Maccy is not running")
+      XCTFail("MacClipboard is not running")
       return
     }
 
@@ -613,7 +613,7 @@ class MaccyUITests: XCTestCase {
       statusItem = axStatusItem(of: appElement)
     }
     guard let statusItem else {
-      XCTFail("Maccy has no status item exposed via accessibility")
+      XCTFail("MacClipboard has no status item exposed via accessibility")
       return
     }
 
@@ -667,13 +667,13 @@ class MaccyUITests: XCTestCase {
 
   private func waitUntilPoppedUp() {
     if !app.dialogs.firstMatch.waitForExistence(timeout: 3) {
-      XCTFail("Maccy did not pop up")
+      XCTFail("MacClipboard did not pop up")
     }
   }
 
   private func assertPopupDismissed() {
     if !app.dialogs.firstMatch.waitForNonExistence(timeout: 3) {
-      XCTFail("Maccy did not dismiss")
+      XCTFail("MacClipboard did not dismiss")
     }
   }
 
@@ -732,7 +732,7 @@ class MaccyUITests: XCTestCase {
     waitTillClipboardCheck()
   }
 
-  // Default interval for Maccy to check clipboard is 1 second
+  // Default interval for MacClipboard to check clipboard is 1 second
   private func waitTillClipboardCheck() {
     usleep(1_500_000)
   }

@@ -1,5 +1,5 @@
 import Testing
-@testable import Maccy
+@testable import MacClipboard
 
 private let objectReplacement = "\u{FFFC}"
 

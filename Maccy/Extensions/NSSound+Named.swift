@@ -1,8 +1,7 @@
 import AppKit.NSSound
 
+// Built-in macOS system sounds, so the app ships no audio files of its own.
 extension NSSound {
-  static let knock = NSSound(
-    contentsOf: Bundle.main.url(forResource: "Knock", withExtension: "caf")!, byReference: true)
-  static let write = NSSound(
-    contentsOf: Bundle.main.url(forResource: "Write", withExtension: "caf")!, byReference: true)
+  static let knock = NSSound(named: "Tink")
+  static let write = NSSound(named: "Pop")
 }

@@ -1,7 +1,7 @@
 import AppKit
 import Testing
 import Defaults
-@testable import Maccy
+@testable import MacClipboard
 
 private final class BundleToken {}
 
@@ -77,12 +77,12 @@ extension SharedStateTests {
 
     @Test("Image title becomes the recognized text")
     func imageTitleBecomesRecognizedText() async throws {
-      let item = historyItem(textImage("Hello Maccy"))
+      let item = historyItem(textImage("Hello MacClipboard"))
       let deadline = ContinuousClock.now + .seconds(10)
       while item.title.isEmpty && ContinuousClock.now < deadline {
         try await Task.sleep(for: .milliseconds(100))
       }
-      #expect(item.title == "Hello Maccy")
+      #expect(item.title == "Hello MacClipboard")
     }
 
     @Test("Title for file", arguments: ["/tmp/foo.bar", "/tmp/产品培训/产品培训.txt"])

@@ -11,7 +11,7 @@ import SwiftData
 @Observable
 class History: ItemsContainer { // swiftlint:disable:this type_body_length
   static let shared = History()
-  let logger = Logger(label: "org.p0deje.Maccy")
+  let logger = Logger(label: "com.mkmanishkandel.MacClipboard")
 
   var pasteStack: PasteStack?
 
@@ -175,7 +175,7 @@ class History: ItemsContainer { // swiftlint:disable:this type_body_length
       item.numberOfCopies += existingHistoryItem.numberOfCopies
       item.pin = existingHistoryItem.pin
       item.title = existingHistoryItem.title
-      if !item.fromMaccy {
+      if !item.fromMacClipboard {
         item.application = existingHistoryItem.application
       }
       logger.info("Removing duplicate item '\(item.title)'")

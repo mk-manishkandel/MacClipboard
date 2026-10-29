@@ -1,7 +1,7 @@
 import Foundation
 import Testing
 import Defaults
-@testable import Maccy
+@testable import MacClipboard
 
 extension SharedStateTests {
   @MainActor

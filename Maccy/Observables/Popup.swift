@@ -129,7 +129,7 @@ class Popup {
       return
     }
 
-    // Maccy was not opened via shortcut. We assume toggle mode and close it
+    // MacClipboard was not opened via shortcut. We assume toggle mode and close it
     close()
   }
 

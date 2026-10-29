@@ -34,12 +34,17 @@ sed -i '' -E "s/CURRENT_PROJECT_VERSION = [0-9]+;/CURRENT_PROJECT_VERSION = $BUI
 sed -i '' -E "s/MARKETING_VERSION = [0-9.]+;/MARKETING_VERSION = $VERSION;/" "$PBXPROJ"
 echo "==> Building $VERSION ($BUILD)"
 
+# Hardened runtime is off because the app is ad-hoc signed: with it on, macOS refuses to load
+# the embedded Sparkle framework (different signing identity). Re-enable it with a Developer ID.
 xcodebuild -project Maccy.xcodeproj -scheme Maccy -configuration Release \
   -derivedDataPath build \
-  CODE_SIGN_IDENTITY="-" CODE_SIGN_STYLE=Manual DEVELOPMENT_TEAM="" \
+  CODE_SIGN_IDENTITY="-" CODE_SIGN_STYLE=Manual DEVELOPMENT_TEAM="" ENABLE_HARDENED_RUNTIME=NO \
   clean build | grep -E 'error:|BUILD (SUCCEEDED|FAILED)'
 
-APP="build/Build/Products/Release/Maccy.app"
+APP="build/Build/Products/Release/MacClipboard.app"
+# The MIT and third-party licenses require their notices to ship with every copy of the app.
+cp LICENSE THIRD_PARTY_NOTICES.md "$APP/Contents/Resources/"
+codesign --force --sign - --preserve-metadata=entitlements,requirements,flags,runtime "$APP"
 rm -rf "$WORK" && mkdir -p "$WORK"
 ZIP="$WORK/MacClipboard-$VERSION.zip"
 ditto -c -k --sequesterRsrc --keepParent "$APP" "$ZIP"

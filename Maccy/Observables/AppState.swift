@@ -73,7 +73,7 @@ class AppState: Sendable {
         item.action()
       }
     } else {
-      Clipboard.shared.copyInMaccy(history.searchQuery)
+      Clipboard.shared.copyInMacClipboard(history.searchQuery)
       history.searchQuery = ""
     }
   }

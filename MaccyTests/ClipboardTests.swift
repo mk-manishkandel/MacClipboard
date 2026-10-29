@@ -1,7 +1,7 @@
 import AppKit
 import Testing
 import Defaults
-@testable import Maccy
+@testable import MacClipboard
 
 extension SharedStateTests {
   // swiftlint:disable type_body_length
@@ -188,15 +188,15 @@ extension SharedStateTests {
       #expect(pasteboard.string(forType: .string) == "foo")
       #expect(pasteboard.data(forType: .tiff) == imageData)
       #expect(pasteboard.string(forType: .fileURL) == "file://foo.bar")
-      #expect(pasteboard.string(forType: .fromMaccy) == "")
+      #expect(pasteboard.string(forType: .fromMacClipboard) == "")
       #expect(pasteboard.string(forType: .source) == "com.foo.bar")
     }
 
     @Test("Copy string")
     func copyString() {
-      clipboard.copyInMaccy("foo")
+      clipboard.copyInMacClipboard("foo")
       #expect(pasteboard.string(forType: .string) == "foo")
-      #expect(pasteboard.string(forType: .source) == NSPasteboard.PasteboardType.fromMaccy.rawValue)
+      #expect(pasteboard.string(forType: .source) == NSPasteboard.PasteboardType.fromMacClipboard.rawValue)
     }
 
     @Test("Copy without formatting")
@@ -214,7 +214,7 @@ extension SharedStateTests {
       item.application = "com.foo.bar"
       clipboard.copy(item, removeFormatting: true)
       #expect(pasteboard.string(forType: .string) == "foo")
-      #expect(pasteboard.string(forType: .fromMaccy) == "")
+      #expect(pasteboard.string(forType: .fromMacClipboard) == "")
       #expect(pasteboard.string(forType: .source) == "com.foo.bar")
       #expect(pasteboard.string(forType: .fileURL) == "file://foo.bar")
       #expect(pasteboard.data(forType: .rtf) == nil)

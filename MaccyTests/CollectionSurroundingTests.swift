@@ -1,5 +1,5 @@
 import Testing
-@testable import Maccy
+@testable import MacClipboard
 
 @MainActor
 struct CollectionSurroundingTests {

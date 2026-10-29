@@ -16,7 +16,7 @@ class Storage {
     return ByteCountFormatter().string(fromByteCount: size)
   }
 
-  private let url = URL.applicationSupportDirectory.appending(path: "Maccy/Storage.sqlite")
+  private let url = URL.applicationSupportDirectory.appending(path: "MacClipboard/Storage.sqlite")
 
   init() {
     var config = ModelConfiguration(url: url)
@@ -71,7 +71,7 @@ class Storage {
   }
 
   // Titles stored before the sanitization in `HistoryItem.generateTitle()` may
-  // contain scalars that hang CoreText on macOS 26. Such an item makes Maccy
+  // contain scalars that hang CoreText on macOS 26. Such an item makes MacClipboard
   // spin at 100% CPU on every launch without ever drawing its window, so the
   // store has to be healed before the history is first rendered.
   // See https://github.com/p0deje/Maccy/issues/1520.

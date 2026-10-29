@@ -1,12 +1,21 @@
+<img width="128px" src="Maccy/Assets.xcassets/AppIcon.appiconset/AppIcon (Big Sur)-256w.png" alt="MacClipboard icon" />
+
 # MacClipboard
 
 [![Release](https://img.shields.io/github/v/release/mk-manishkandel/MacClipboard)](https://github.com/mk-manishkandel/MacClipboard/releases/latest)
 
-MacClipboard is a privacy-focused build of [Maccy](https://github.com/p0deje/Maccy), the open-source clipboard manager by Alex Rodionov, distributed under the same MIT license.
+MacClipboard is a lightweight, privacy-focused clipboard manager for macOS. It keeps the history of what you copy
+and lets you quickly navigate, search, and use previous clipboard contents.
+
+It is an independent fork of [Maccy](https://github.com/p0deje/Maccy) by Alex Rodionov, used under the MIT License.
+MacClipboard is not affiliated with or endorsed by the Maccy project. See [Credits and license](#credits-and-license).
+
+MacClipboard works on macOS Sonoma 14 or higher.
 
 ## Privacy
 
-* Clipboard history is stored **only on your Mac** in `~/Library/Application Support/Maccy/Storage.sqlite`.
+* Clipboard history is stored **only on your Mac**, inside the app's sandbox container:
+  `~/Library/Containers/com.mkmanishkandel.MacClipboard/Data/Library/Application Support/MacClipboard/Storage.sqlite`.
 * There is no analytics, telemetry, crash reporting or cloud sync.
 * The only network request the app makes is the optional update check. It downloads
   [`appcast.xml`](appcast.xml) from this repository and, if you accept an update, the release zip from GitHub Releases.
@@ -15,64 +24,13 @@ MacClipboard is a privacy-focused build of [Maccy](https://github.com/p0deje/Mac
 ## Install
 
 1. Download `MacClipboard-<version>.zip` from the [latest release](https://github.com/mk-manishkandel/MacClipboard/releases/latest).
-2. Unzip it and move `Maccy.app` to `/Applications`.
+2. Unzip it and move `MacClipboard.app` to `/Applications`.
 3. The app is not notarized by Apple, so on first launch right-click it and choose **Open**
-   (or run `xattr -dr com.apple.quarantine /Applications/Maccy.app`).
+   (or run `xattr -dr com.apple.quarantine /Applications/MacClipboard.app`).
 4. Grant Accessibility permission when asked so it can paste for you.
 
 After that, updates arrive over the air: the app checks this repository's feed and offers to install new versions.
 Every update is verified against the EdDSA public key built into the app, so only releases signed by this repository's key are accepted.
-
-## Build from source
-
-```sh
-git clone https://github.com/mk-manishkandel/MacClipboard.git
-cd MacClipboard
-xcodebuild -project Maccy.xcodeproj -scheme Maccy -configuration Release -derivedDataPath build \
-  CODE_SIGN_IDENTITY="-" CODE_SIGN_STYLE=Manual DEVELOPMENT_TEAM="" build
-open build/Build/Products/Release
-```
-
-## Publishing a release (maintainers)
-
-```sh
-scripts/release.sh 2.8.1 "What changed in this version."
-```
-
-The script bumps the version, builds, zips, signs the update with the Sparkle private key from your Keychain
-(account `MacClipboard`), updates `appcast.xml`, creates the GitHub release and pushes the new feed.
-Back up the private key with `generate_keys --account MacClipboard -x private-key.txt` and keep it secret:
-without it you cannot ship updates to existing installs.
-
----
-
-The rest of this document is the upstream Maccy documentation.
-
-Maccy is a lightweight clipboard manager for macOS. It keeps the history of what you copy
-and lets you quickly navigate, search, and use previous clipboard contents.
-
-Maccy works on macOS Sonoma 14 or higher.
-
-<!-- vim-markdown-toc GFM -->
-
-* [Features](#features)
-* [Install](#install)
-* [Usage](#usage)
-* [Advanced](#advanced)
-  * [Ignore Copied Items](#ignore-copied-items)
-  * [Ignore Custom Copy Types](#ignore-custom-copy-types)
-  * [Speed up Clipboard Check Interval](#speed-up-clipboard-check-interval)
-* [FAQ](#faq)
-  * [Why doesn't it paste when I select an item in history?](#why-doesnt-it-paste-when-i-select-an-item-in-history)
-  * [When assigning a hotkey to open Maccy, it says that this hotkey is already used in some system setting.](#when-assigning-a-hotkey-to-open-maccy-it-says-that-this-hotkey-is-already-used-in-some-system-setting)
-  * [How to restore hidden footer?](#how-to-restore-hidden-footer)
-  * [How to ignore copies from Universal Clipboard?](#how-to-ignore-copies-from-universal-clipboard)
-  * [My keyboard shortcut stopped working in password fields. How do I fix this?](#my-keyboard-shortcut-stopped-working-in-password-fields-how-do-i-fix-this)
-* [Translations](#translations)
-* [Motivation](#motivation)
-* [License](#license)
-
-<!-- vim-markdown-toc -->
 
 ## Features
 
@@ -82,17 +40,9 @@ Maccy works on macOS Sonoma 14 or higher.
 * Native UI
 * Open source and free
 
-## Install
-
-Download the latest version from the [releases](https://github.com/p0deje/Maccy/releases/latest) page, or use [Homebrew](https://brew.sh/):
-
-```sh
-brew install maccy
-```
-
 ## Usage
 
-1. <kbd>SHIFT (⇧)</kbd> + <kbd>COMMAND (⌘)</kbd> + <kbd>C</kbd> to popup Maccy or click on its icon in the menu bar.
+1. <kbd>SHIFT (⇧)</kbd> + <kbd>COMMAND (⌘)</kbd> + <kbd>C</kbd> to popup MacClipboard or click on its icon in the menu bar.
 2. Type what you want to find.
 3. To select the history item you wish to copy, press <kbd>ENTER</kbd>, or click the item, or use <kbd>COMMAND (⌘)</kbd> + `n` shortcut.
 4. To choose the history item and paste, press <kbd>OPTION (⌥)</kbd> + <kbd>ENTER</kbd>, or <kbd>OPTION (⌥)</kbd> + <kbd>CLICK</kbd> the item, or use <kbd>OPTION (⌥)</kbd> + `n` shortcut.
@@ -101,7 +51,7 @@ brew install maccy
 7. To see the full text of the history item, wait a couple of seconds for tooltip.
 8. To pin the history item so that it remains on top of the list, press <kbd>OPTION (⌥)</kbd> + <kbd>P</kbd>. The item will be moved to the top with a random but permanent keyboard shortcut. To unpin it, press <kbd>OPTION (⌥)</kbd> + <kbd>P</kbd> again.
 9. To clear all unpinned items, select _Clear_ in the menu, or press <kbd>OPTION (⌥)</kbd> + <kbd>COMMAND (⌘)</kbd> + <kbd>DELETE (⌫)</kbd>. To clear all items including pinned, select _Clear_ in the menu with  <kbd>OPTION (⌥)</kbd> pressed, or press <kbd>SHIFT (⇧)</kbd> + <kbd>OPTION (⌥)</kbd> + <kbd>COMMAND (⌘)</kbd> + <kbd>DELETE (⌫)</kbd>.
-10. To disable Maccy and ignore new copies, click on the menu icon with <kbd>OPTION (⌥)</kbd> pressed.
+10. To disable MacClipboard and ignore new copies, click on the menu icon with <kbd>OPTION (⌥)</kbd> pressed.
 11. To ignore only the next copy, click on the menu icon with <kbd>OPTION (⌥)</kbd> + <kbd>SHIFT (⇧)</kbd> pressed.
 12. To customize the behavior, check "Preferences…" window, or press <kbd>COMMAND (⌘)</kbd> + <kbd>,</kbd>.
 
@@ -109,10 +59,10 @@ brew install maccy
 
 ### Ignore Copied Items
 
-You can tell Maccy to ignore all copied items:
+You can tell MacClipboard to ignore all copied items:
 
 ```sh
-defaults write org.p0deje.Maccy ignoreEvents true # default is false
+defaults write com.mkmanishkandel.MacClipboard ignoreEvents true # default is false
 ```
 
 This is useful if you have some workflow for copying sensitive data. You can set `ignoreEvents` to true, copy the data and set `ignoreEvents` back to false.
@@ -121,7 +71,7 @@ You can also click the menu icon with <kbd>OPTION (⌥)</kbd> pressed. To ignore
 
 ### Ignore Custom Copy Types
 
-By default Maccy will ignore certain copy types that are considered to be confidential
+By default MacClipboard will ignore certain copy types that are considered to be confidential
 or temporary. The default list always include the following types:
 
 * `org.nspasteboard.TransientType`
@@ -146,11 +96,11 @@ of using this approach to ignore Adobe InDesign](https://github.com/p0deje/Maccy
 
 ### Speed up Clipboard Check Interval
 
-By default, Maccy checks clipboard every 500 ms, which should be enough for most users. If you want
+By default, MacClipboard checks clipboard every 500 ms, which should be enough for most users. If you want
 to speed it up, you can change it with `defaults`:
 
 ```sh
-defaults write org.p0deje.Maccy clipboardCheckInterval 0.1 # 100 ms
+defaults write com.mkmanishkandel.MacClipboard clipboardCheckInterval 0.1 # 100 ms
 ```
 
 ## FAQ
@@ -158,26 +108,26 @@ defaults write org.p0deje.Maccy clipboardCheckInterval 0.1 # 100 ms
 ### Why doesn't it paste when I select an item in history?
 
 1. Make sure you have "Paste automatically" enabled in Preferences.
-2. Make sure "Maccy" is added to System Settings -> Privacy & Security -> Accessibility.
+2. Make sure "MacClipboard" is added to System Settings -> Privacy & Security -> Accessibility.
 
-### When assigning a hotkey to open Maccy, it says that this hotkey is already used in some system setting.
+### When assigning a hotkey to open MacClipboard, it says that this hotkey is already used in some system setting.
 
 1. Open System settings -> Keyboard -> Keyboard Shortcuts.
 2. Find where that hotkey is used. For example, "Convert text to simplified Chinese" is under Services -> Text.
 3. Disable that hotkey or remove assigned combination ([screenshot](https://github.com/p0deje/Maccy/assets/576152/446719e6-c3e5-4eb0-95fb-5a811066487f)).
-4. Restart Maccy.
-5. Assign hotkey in Maccy settings.
+4. Restart MacClipboard.
+5. Assign hotkey in MacClipboard settings.
 
 ### How to restore hidden footer?
 
-1. Open Maccy window.
+1. Open MacClipboard window.
 2. Press <kbd>COMMAND (⌘)</kbd> + <kbd>,</kbd> to open preferences.
 3. Enable footer in Appearance section.
 
 If for some reason it doesn't work, run the following command in Terminal.app:
 
 ```sh
-defaults write org.p0deje.Maccy showFooter 1
+defaults write com.mkmanishkandel.MacClipboard showFooter 1
 ```
 
 ### How to ignore copies from [Universal Clipboard](https://support.apple.com/en-us/102430)?
@@ -189,22 +139,35 @@ defaults write org.p0deje.Maccy showFooter 1
 
 If your shortcut produces a character (like `Option+C` → "ç"), macOS security may block it in password fields. Use [Karabiner-Elements](https://karabiner-elements.pqrs.org/) to remap your shortcut to a different combination like `Cmd+Shift+C`. [See detailed solution](docs/keyboard-shortcut-password-fields.md).
 
-## Translations
+## Build from source
 
-The translations are hosted in [Weblate](https://hosted.weblate.org/engage/maccy/).
-You can use it to suggest changes in translations and localize the application to a new language.
+```sh
+git clone https://github.com/mk-manishkandel/MacClipboard.git
+cd MacClipboard
+xcodebuild -project Maccy.xcodeproj -scheme Maccy -configuration Release -derivedDataPath build \
+  CODE_SIGN_IDENTITY="-" CODE_SIGN_STYLE=Manual DEVELOPMENT_TEAM="" ENABLE_HARDENED_RUNTIME=NO build
+open build/Build/Products/Release
+```
 
-[![Translation status](https://hosted.weblate.org/widget/maccy/multi-auto.svg)](https://hosted.weblate.org/engage/maccy/)
+The Xcode project, targets and source folders keep their upstream `Maccy` names so upstream fixes can be merged easily.
 
-## Motivation
+## Publishing a release (maintainers)
 
-There are dozens of similar applications out there, so why build another?
-Over the past years since I moved from Linux to macOS, I struggled to find
-a clipboard manager that is as free and simple as [Parcellite](http://parcellite.sourceforge.net),
-but I couldn't. So I've decided to build one.
+```sh
+scripts/release.sh 2.8.1 "What changed in this version."
+```
 
-Also, I wanted to learn Swift and get acquainted with macOS application development.
+The script bumps the version, builds, zips, signs the update with the Sparkle private key from your Keychain
+(account `MacClipboard`), updates `appcast.xml`, creates the GitHub release and pushes the new feed.
+Back up the private key with `generate_keys --account MacClipboard -x private-key.txt` and keep it secret:
+without it you cannot ship updates to existing installs.
 
-## License
+## Credits and license
 
-[MIT](./LICENSE)
+MacClipboard is a modified version of [Maccy](https://github.com/p0deje/Maccy), Copyright (c) Alex Rodionov,
+and is distributed under the [MIT License](LICENSE). "Maccy" is the name of the original project and is used here
+only to credit it. MacClipboard has its own name, icon and bundle identifier, and is not affiliated with
+or endorsed by the Maccy project.
+
+Translations come from the Maccy community. Third-party libraries and their licenses are listed in
+[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).

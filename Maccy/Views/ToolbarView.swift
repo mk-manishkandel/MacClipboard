@@ -121,7 +121,7 @@ struct ToolbarView: View {
         if selectedImageItem != nil {
           ToolbarButton {
             guard let selectedImageText else { return }
-            Clipboard.shared.copyInMaccy(selectedImageText)
+            Clipboard.shared.copyInMacClipboard(selectedImageText)
           } label: {
             Image(systemName: "text.viewfinder")
           }

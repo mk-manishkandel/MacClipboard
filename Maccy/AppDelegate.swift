@@ -112,7 +112,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     panel = FloatingPanel(
       contentRect: NSRect(origin: .zero, size: Defaults[.windowSize]),
-      identifier: Bundle.main.bundleIdentifier ?? "org.p0deje.Maccy",
+      identifier: Bundle.main.bundleIdentifier ?? "com.mkmanishkandel.MacClipboard",
       statusBarButton: statusItem.button,
       onClose: { AppState.shared.popup.reset() }
     ) {
@@ -173,7 +173,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
       _ = try? Storage.shared.removeUnpersistableContents()
     }
 
-    // The following defaults are not used in Maccy 2.x
+    // The following defaults are not used since Maccy 2.x
     // and should be removed in 3.x.
     // - LaunchAtLogin__hasMigrated
     // - avoidTakingFocus

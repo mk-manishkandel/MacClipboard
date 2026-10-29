@@ -63,7 +63,7 @@ class HistoryItem {
 
   private static let transientTypes: [String] = [
     NSPasteboard.PasteboardType.modified.rawValue,
-    NSPasteboard.PasteboardType.fromMaccy.rawValue,
+    NSPasteboard.PasteboardType.fromMacClipboard.rawValue,
     NSPasteboard.PasteboardType.linkPresentationMetadata.rawValue,
     NSPasteboard.PasteboardType.customWebKitPasteboardData.rawValue,
     NSPasteboard.PasteboardType.source.rawValue,
@@ -227,7 +227,7 @@ class HistoryItem {
     return Int(modified)
   }
 
-  var fromMaccy: Bool { contentData([.fromMaccy]) != nil }
+  var fromMacClipboard: Bool { contentData([.fromMacClipboard]) != nil }
   var universalClipboard: Bool { contentData([.universalClipboard]) != nil }
 
   private var universalClipboardImage: Bool { universalClipboard && fileURLs.first?.pathExtension == "jpeg" }
@@ -250,7 +250,7 @@ class HistoryItem {
   }
 
   nonisolated private static let textRecognitionQueue = DispatchQueue(
-    label: "org.p0deje.Maccy.textRecognition",
+    label: "com.mkmanishkandel.MacClipboard.textRecognition",
     qos: .utility
   )
 

@@ -53,8 +53,13 @@ fi
 
 if gh repo view "$TAP" >/dev/null 2>&1; then
   EXISTING_SHA="$(gh api "repos/$TAP/contents/Casks/macclipboard.rb" --jq .sha 2>/dev/null || true)"
+  # Commit with the GitHub no-reply address so no personal email is published.
+  NOREPLY="$(gh api user --jq '"\(.id)+\(.login)@users.noreply.github.com"')"
+  LOGIN="$(gh api user --jq .login)"
   gh api -X PUT "repos/$TAP/contents/Casks/macclipboard.rb" \
     -f message="macclipboard $VERSION" \
+    -f "committer[name]=$LOGIN" -f "committer[email]=$NOREPLY" \
+    -f "author[name]=$LOGIN" -f "author[email]=$NOREPLY" \
     -f content="$(base64 < "$CASK" | tr -d '\n')" \
     ${EXISTING_SHA:+-f sha="$EXISTING_SHA"} > /dev/null
   echo "Updated $TAP"

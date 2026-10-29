@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MacClipboard</title>
+  <meta name="description" content="A free, private clipboard manager for Mac. Encrypted local history, one-click paste, automatic updates.">
+  <link rel="icon" type="image/png" href="icon.png">
+  <style>
+    :root {
+      --bg: #f7f8fb;
+      --surface: #ffffff;
+      --text: #14171f;
+      --muted: #5b6272;
+      --border: #e3e6ee;
+      --accent: #2f53db;
+      --accent-2: #1ac8ba;
+      --accent-text: #ffffff;
+      --code-bg: #eef1f7;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0e1117;
+        --surface: #171b24;
+        --text: #eef1f7;
+        --muted: #a2a9b8;
+        --border: #2a303c;
+        --accent: #5b7bff;
+        --accent-2: #2fd9c9;
+        --accent-text: #ffffff;
+        --code-bg: #1f2430;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 17px/1.55 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    main { max-width: 960px; margin: 0 auto; padding: 0 16px; }
+    a { color: var(--accent); }
+
+    .hero { text-align: center; padding: 72px 0 48px; }
+    .hero img { width: 128px; height: 128px; }
+    .hero h1 { font-size: clamp(36px, 7vw, 56px); line-height: 1.1; margin: 16px 0 12px; letter-spacing: -0.02em; }
+    .hero p { font-size: clamp(18px, 3vw, 21px); color: var(--muted); max-width: 560px; margin: 0 auto 28px; }
+    .download {
+      display: inline-block;
+      padding: 14px 28px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent-2), var(--accent));
+      color: var(--accent-text);
+      font-weight: 600;
+      font-size: 18px;
+      text-decoration: none;
+      box-shadow: 0 6px 20px rgba(47, 83, 219, 0.25);
+    }
+    .download:hover { filter: brightness(1.06); }
+    .meta { margin-top: 14px; font-size: 14px; color: var(--muted); }
+    .meta a { color: var(--muted); }
+
+    section { padding: 40px 0; border-top: 1px solid var(--border); }
+    h2 { font-size: 28px; margin: 0 0 20px; letter-spacing: -0.01em; }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 20px; }
+    .card h3 { margin: 0 0 6px; font-size: 18px; }
+    .card p { margin: 0; color: var(--muted); font-size: 16px; }
+    .card .emoji { font-size: 26px; display: block; margin-bottom: 8px; }
+
+    ol.steps { padding-left: 22px; margin: 0; }
+    ol.steps li { margin-bottom: 12px; }
+    ol.steps ul { margin: 8px 0 0; padding-left: 20px; color: var(--muted); }
+
+    table { width: 100%; border-collapse: collapse; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+    th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--border); font-size: 16px; }
+    tr:last-child td { border-bottom: 0; }
+    th { color: var(--muted); font-weight: 600; font-size: 14px; }
+    kbd {
+      font: 13px/1 ui-monospace, "SF Mono", Menlo, monospace;
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-bottom-width: 2px;
+      border-radius: 6px;
+      padding: 3px 6px;
+      white-space: nowrap;
+    }
+    code { font: 14px ui-monospace, "SF Mono", Menlo, monospace; background: var(--code-bg); padding: 2px 6px; border-radius: 6px; overflow-wrap: anywhere; }
+
+    footer { padding: 32px 0 48px; border-top: 1px solid var(--border); color: var(--muted); font-size: 14px; text-align: center; }
+    footer a { color: var(--muted); }
+
+    @media (max-width: 520px) {
+      .hero { padding-top: 48px; }
+      th, td { padding: 8px 10px; font-size: 15px; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <header class="hero">
+    <img src="icon.png" alt="MacClipboard icon">
+    <h1>MacClipboard</h1>
+    <p>A free, private clipboard manager for your Mac. It remembers everything you copy, so you can find it and paste it again in a second.</p>
+    <a class="download" href="https://github.com/mk-manishkandel/MacClipboard/releases/latest/download/MacClipboard.zip">⬇️ Download for Mac</a>
+    <div class="meta">
+      Free · Open source · macOS 14 Sonoma or newer · Apple silicon and Intel<br>
+      <a href="https://github.com/mk-manishkandel/MacClipboard/blob/main/CHANGELOG.md">What’s new</a> ·
+      <a href="https://github.com/mk-manishkandel/MacClipboard">Source code</a>
+    </div>
+  </header>
+
+  <section>
+    <h2>Why MacClipboard</h2>
+    <div class="grid">
+      <div class="card"><span class="emoji">📋</span><h3>Never lose a copy</h3><p>Text, links, images and files you copy are saved in a searchable history.</p></div>
+      <div class="card"><span class="emoji">⚡</span><h3>Paste in one click</h3><p>Press <kbd>⇧⌘C</kbd>, pick an item, and it is pasted straight into the field you are typing in.</p></div>
+      <div class="card"><span class="emoji">🔒</span><h3>Private by design</h3><p>History never leaves your Mac and is encrypted on disk. No accounts, no tracking, no cloud.</p></div>
+      <div class="card"><span class="emoji">🙈</span><h3>Forgets your secrets</h3><p>Passwords, API keys, card numbers and one-time codes are removed after 30 seconds.</p></div>
+      <div class="card"><span class="emoji">🧰</span><h3>Text tools</h3><p>Right-click to paste as UPPERCASE, trimmed, joined lines, pretty JSON, or a link without tracking codes.</p></div>
+      <div class="card"><span class="emoji">📌</span><h3>Snippets</h3><p>Save text you use often, like your address or a reply, and paste it any time.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Install</h2>
+    <ol class="steps">
+      <li><a href="https://github.com/mk-manishkandel/MacClipboard/releases/latest/download/MacClipboard.zip"><strong>Download MacClipboard.zip</strong></a> and double-click it to unzip.</li>
+      <li>Drag <strong>MacClipboard.app</strong> into your <strong>Applications</strong> folder.</li>
+      <li>Open it. MacClipboard is free and not notarized by Apple, so macOS blocks it the first time:
+        <ul>
+          <li><strong>macOS 15 or newer:</strong> click <em>Done</em>, open <em>System Settings → Privacy &amp; Security</em>, scroll down and click <em>Open Anyway</em>.</li>
+          <li><strong>macOS 14:</strong> right-click the app, choose <em>Open</em>, then <em>Open</em> again.</li>
+        </ul>
+      </li>
+      <li>When asked, allow <strong>Accessibility</strong> so MacClipboard can paste for you.</li>
+      <li>Press <kbd>⇧⌘C</kbd>. You are ready to go. Updates install themselves.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Shortcuts</h2>
+    <table>
+      <tr><th>To do this</th><th>Press</th></tr>
+      <tr><td>Open your clipboard history</td><td><kbd>⇧⌘C</kbd></td></tr>
+      <tr><td>Search</td><td>Just start typing</td></tr>
+      <tr><td>Paste the selected item</td><td><kbd>Enter</kbd> or click</td></tr>
+      <tr><td>Copy without pasting</td><td><kbd>⌥ Enter</kbd></td></tr>
+      <tr><td>Paste without formatting</td><td><kbd>⇧⌘ Enter</kbd></td></tr>
+      <tr><td>Pin an item</td><td><kbd>⌥P</kbd></td></tr>
+      <tr><td>Delete an item</td><td><kbd>⌥⌫</kbd></td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>Privacy</h2>
+    <div class="grid">
+      <div class="card"><h3>Stays on your Mac</h3><p>Your history is stored only on your Mac and encrypted with AES-256. The key lives in your Keychain.</p></div>
+      <div class="card"><h3>One network request</h3><p>The only thing MacClipboard downloads is its update feed from GitHub. Nothing you copy is ever sent anywhere.</p></div>
+      <div class="card"><h3>Open source</h3><p>Every line of code is public on <a href="https://github.com/mk-manishkandel/MacClipboard">GitHub</a>, so anyone can check these promises.</p></div>
+    </div>
+  </section>
+
+  <footer>
+    MacClipboard is an independent fork of <a href="https://github.com/p0deje/Maccy">Maccy</a> by Alex Rodionov, used under the
+    <a href="https://github.com/mk-manishkandel/MacClipboard/blob/main/LICENSE">MIT License</a>, and is not affiliated with the Maccy project.
+    This site uses no cookies or tracking.
+  </footer>
+</main>
+</body>
+</html>

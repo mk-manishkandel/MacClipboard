@@ -71,8 +71,13 @@ printf '<ul>\n<li>%s</li>\n</ul>\n' "$NOTES" > "$WORK/MacClipboard-$VERSION.html
   "$WORK"
 cp "$WORK/appcast.xml" appcast.xml
 
+# Newest version first, right below the marker line.
+MARKER="<!-- release.sh adds new versions below this line -->"
+ENTRY="$(printf '## %s — %s\n\n- %s' "$VERSION" "$(date +%Y-%m-%d)" "$NOTES")"
+python3 -I -c 'import sys,pathlib; p=pathlib.Path("CHANGELOG.md"); m,e=sys.argv[1:]; s=p.read_text(); assert m in s; p.write_text(s.replace(m, m+"\n\n"+e, 1))' "$MARKER" "$ENTRY"
+
 echo "==> Publishing GitHub release $TAG"
-git add "$PBXPROJ" appcast.xml
+git add "$PBXPROJ" appcast.xml CHANGELOG.md
 git commit -m "Release $VERSION"
 git tag "$TAG"
 # The zip must be downloadable before the new appcast goes live on main, so push main last.

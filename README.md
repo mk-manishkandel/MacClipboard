@@ -11,7 +11,8 @@
 
 <p align="center">
   <a href="https://github.com/mk-manishkandel/MacClipboard/releases/latest/download/MacClipboard.zip"><b>⬇️ Download MacClipboard for Mac</b></a><br/>
-  <sub>Free · Open source · macOS 14 Sonoma or newer · Apple silicon and Intel</sub>
+  <sub>Free · Open source · macOS 14 Sonoma or newer · Apple silicon and Intel</sub><br/>
+  <a href="CHANGELOG.md">What's new</a> · <a href="https://github.com/mk-manishkandel/MacClipboard/releases">All releases</a>
 </p>
 
 <p align="center">
@@ -40,7 +41,8 @@
    **System Settings → Privacy & Security → Accessibility** and turn on **MacClipboard**. This lets it paste for you.
 5. Look for the clipboard icon in your menu bar. You are ready to go.
 
-**Updates:** MacClipboard checks for new versions and asks before installing. You can also check any time in
+**Updates:** MacClipboard checks for new versions and shows what changed before installing
+(see [What's new](CHANGELOG.md)). You can also check any time in
 **Settings → General → Check now**.
 
 **Uninstall:** quit MacClipboard from its menu, drag it from Applications to the Trash, and optionally delete

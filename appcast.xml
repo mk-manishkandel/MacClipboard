@@ -6,6 +6,19 @@
         <description>Most recent changes with links to updates.</description>
         <language>en</language>
         <item>
+            <title>2.8.7</title>
+            <pubDate>Thu, 29 Oct 2026 12:55:06 +0545</pubDate>
+            <link>https://github.com/mk-manishkandel/MacClipboard</link>
+            <sparkle:version>70</sparkle:version>
+            <sparkle:shortVersionString>2.8.7</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[<ul>
+<li>Removed unused code, including an App Store review prompt that never applied to this app. The app is smaller and does the same things as before.</li>
+</ul>
+]]></description>
+            <enclosure url="https://github.com/mk-manishkandel/MacClipboard/releases/download/v2.8.7/MacClipboard-2.8.7.zip" length="7025860" type="application/octet-stream" sparkle:edSignature="jciX2NUxT+yjphU+jAhNi//cmx5oPd8kwp2ZwH5yIeAVI548o4n++RQWl3rbWJwUZbHggbEsu4zzTTzrJ0zZBw=="/>
+        </item>
+        <item>
             <title>2.8.6</title>
             <pubDate>Thu, 29 Oct 2026 12:42:46 +0545</pubDate>
             <link>https://github.com/mk-manishkandel/MacClipboard</link>
@@ -30,19 +43,6 @@
 </ul>
 ]]></description>
             <enclosure url="https://github.com/mk-manishkandel/MacClipboard/releases/download/v2.8.5/MacClipboard-2.8.5.zip" length="7219475" type="application/octet-stream" sparkle:edSignature="CUzqFh687U1Vj+TwtPaMeF+7RCm+tDtLb2l9vlSIAVeEnZOqFEpQi5FQ+1qhRubQ9K+6yDag8IevzozwIPrHBQ=="/>
-        </item>
-        <item>
-            <title>2.8.4</title>
-            <pubDate>Thu, 29 Oct 2026 10:25:05 +0545</pubDate>
-            <link>https://github.com/mk-manishkandel/MacClipboard</link>
-            <sparkle:version>67</sparkle:version>
-            <sparkle:shortVersionString>2.8.4</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <description><![CDATA[<ul>
-<li>The history popup is simpler: Preferences, About and Quit are now in the menu bar icon's menu.</li>
-</ul>
-]]></description>
-            <enclosure url="https://github.com/mk-manishkandel/MacClipboard/releases/download/v2.8.4/MacClipboard-2.8.4.zip" length="7159347" type="application/octet-stream" sparkle:edSignature="H9oGJ2yD3yaJhsX4Co6fyaY2ZZjt4o8Mkceh/N7+KuV3e8AE0iHjF2f3dpXhlVabOGYzKCWBaJBicIX5DwHGAg=="/>
         </item>
         <item>
             <title>2.8.1</title>

@@ -37,12 +37,16 @@ echo "==> Building $VERSION ($BUILD)"
 
 # Hardened runtime is off because the app is ad-hoc signed: with it on, macOS refuses to load
 # the embedded Sparkle framework (different signing identity). Re-enable it with a Developer ID.
-xcodebuild -project Maccy.xcodeproj -scheme Maccy -configuration Release \
+xcodebuild -project Maccy.xcodeproj -scheme Maccy -configuration Release -destination 'generic/platform=macOS' \
   -derivedDataPath build \
   CODE_SIGN_IDENTITY="-" CODE_SIGN_STYLE=Manual DEVELOPMENT_TEAM="" ENABLE_HARDENED_RUNTIME=NO \
   clean build | grep -E 'error:|BUILD (SUCCEEDED|FAILED)'
 
 APP="build/Build/Products/Release/MacClipboard.app"
+if [ "$(lipo -archs "$APP/Contents/MacOS/MacClipboard")" != "x86_64 arm64" ]; then
+  echo "Expected a universal (Intel + Apple silicon) build." >&2
+  exit 1
+fi
 # The MIT and third-party licenses require their notices to ship with every copy of the app.
 cp LICENSE THIRD_PARTY_NOTICES.md "$APP/Contents/Resources/"
 # A stable signing identity keeps Accessibility and Keychain access granted across updates.
@@ -73,7 +77,11 @@ git commit -m "Release $VERSION"
 git tag "$TAG"
 # The zip must be downloadable before the new appcast goes live on main, so push main last.
 git push origin "$TAG"
-gh release create "$TAG" "$ZIP" --repo "$REPO" --title "MacClipboard $VERSION" --notes "$NOTES"
+# A fixed-name copy gives the README a download link that always points at the latest release.
+cp "$ZIP" "$WORK/MacClipboard.zip"
+printf '%s\n\n' "$NOTES" | cat - docs/install-notes.md > "$WORK/release-notes.md"
+gh release create "$TAG" "$WORK/MacClipboard.zip" "$ZIP" --repo "$REPO" --title "MacClipboard $VERSION" \
+  --notes-file "$WORK/release-notes.md"
 git push origin HEAD:main
 
 echo "==> Done. Installed copies will see $VERSION on their next update check."

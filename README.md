@@ -1,16 +1,66 @@
-<img width="128px" src="Maccy/Assets.xcassets/AppIcon.appiconset/AppIcon (Big Sur)-256w.png" alt="MacClipboard icon" />
+<p align="center">
+  <img width="128" src="docs/icon.png" alt="MacClipboard icon" />
+</p>
 
-# MacClipboard
+<h1 align="center">MacClipboard</h1>
 
-[![Release](https://img.shields.io/github/v/release/mk-manishkandel/MacClipboard)](https://github.com/mk-manishkandel/MacClipboard/releases/latest)
+<p align="center">
+  A free, private clipboard manager for your Mac.<br/>
+  Remembers everything you copy, so you can find it and paste it again in a second.
+</p>
 
-MacClipboard is a lightweight, privacy-focused clipboard manager for macOS. It keeps the history of what you copy
-and lets you quickly navigate, search, and use previous clipboard contents.
+<p align="center">
+  <a href="https://github.com/mk-manishkandel/MacClipboard/releases/latest/download/MacClipboard.zip"><b>⬇️ Download MacClipboard for Mac</b></a><br/>
+  <sub>Free · Open source · macOS 14 Sonoma or newer · Apple silicon and Intel</sub>
+</p>
 
-It is an independent fork of [Maccy](https://github.com/p0deje/Maccy) by Alex Rodionov, used under the MIT License.
-MacClipboard is not affiliated with or endorsed by the Maccy project. See [Credits and license](#credits-and-license).
+<p align="center">
+  <a href="https://github.com/mk-manishkandel/MacClipboard/releases/latest"><img src="https://img.shields.io/github/v/release/mk-manishkandel/MacClipboard" alt="Latest release" /></a>
+  <a href="https://github.com/mk-manishkandel/MacClipboard/releases"><img src="https://img.shields.io/github/downloads/mk-manishkandel/MacClipboard/total" alt="Downloads" /></a>
+  <a href="LICENSE"><img src="https://img.shields.io/github/license/mk-manishkandel/MacClipboard" alt="MIT License" /></a>
+</p>
 
-MacClipboard works on macOS Sonoma 14 or higher.
+## Why MacClipboard
+
+* **Never lose something you copied.** Every text, link, image and file you copy is saved in a searchable history.
+* **Paste in one click.** Press <kbd>⇧</kbd><kbd>⌘</kbd><kbd>C</kbd>, pick an item, and it is pasted straight into the text field you are typing in.
+* **Private by design.** Your history never leaves your Mac and is encrypted on disk. No accounts, no tracking, no cloud.
+* **Updates itself.** New versions install automatically, and every update is cryptographically verified.
+
+## Install
+
+1. **[Download MacClipboard.zip](https://github.com/mk-manishkandel/MacClipboard/releases/latest/download/MacClipboard.zip)** and double-click it to unzip.
+2. Drag **MacClipboard.app** into your **Applications** folder.
+3. Open it. MacClipboard is free and not notarized by Apple (that requires a paid developer account), so macOS blocks it the first time:
+   * **macOS 15 Sequoia or newer:** click **Done** on the warning, open **System Settings → Privacy & Security**,
+     scroll down and click **Open Anyway** next to *"MacClipboard was blocked"*, then confirm with your password.
+   * **macOS 14 Sonoma:** right-click the app, choose **Open**, then click **Open** again.
+   * **Using Terminal instead:** `xattr -dr com.apple.quarantine /Applications/MacClipboard.app`
+4. The first time you pick an item, macOS asks for **Accessibility** permission. Open
+   **System Settings → Privacy & Security → Accessibility** and turn on **MacClipboard**. This lets it paste for you.
+5. Look for the clipboard icon in your menu bar. You are ready to go.
+
+**Updates:** MacClipboard checks for new versions and asks before installing. You can also check any time in
+**Settings → General → Check now**.
+
+**Uninstall:** quit MacClipboard from its menu, drag it from Applications to the Trash, and optionally delete
+`~/Library/Containers/com.mkmanishkandel.MacClipboard` to remove your history.
+
+## Quick start
+
+| To do this | Press |
+|---|---|
+| Open your clipboard history | <kbd>⇧</kbd> <kbd>⌘</kbd> <kbd>C</kbd> or click the menu bar icon |
+| Search | Just start typing |
+| Paste the selected item | <kbd>Enter</kbd> or click it |
+| Copy it without pasting | <kbd>⌥</kbd> <kbd>Enter</kbd> or <kbd>⌥</kbd>-click |
+| Paste without formatting | <kbd>⇧</kbd> <kbd>⌘</kbd> <kbd>Enter</kbd> |
+| Pin an item to the top | <kbd>⌥</kbd> <kbd>P</kbd> |
+| Delete an item | <kbd>⌥</kbd> <kbd>⌫</kbd> |
+| Open settings | <kbd>⌘</kbd> <kbd>,</kbd> |
+
+MacClipboard is an independent fork of [Maccy](https://github.com/p0deje/Maccy) by Alex Rodionov, used under the
+MIT License, and is not affiliated with or endorsed by the Maccy project. See [Credits and license](#credits-and-license).
 
 ## Privacy
 
@@ -23,17 +73,6 @@ MacClipboard works on macOS Sonoma 14 or higher.
   [`appcast.xml`](appcast.xml) from this repository and, if you accept an update, the release zip from GitHub Releases.
   Nothing about your clipboard is sent. You can turn the check off in **Settings → General → Check for updates**.
 
-## Install
-
-1. Download `MacClipboard-<version>.zip` from the [latest release](https://github.com/mk-manishkandel/MacClipboard/releases/latest).
-2. Unzip it and move `MacClipboard.app` to `/Applications`.
-3. The app is not notarized by Apple, so on first launch right-click it and choose **Open**
-   (or run `xattr -dr com.apple.quarantine /Applications/MacClipboard.app`).
-4. Grant Accessibility permission when asked so it can paste for you.
-
-After that, updates arrive over the air: the app checks this repository's feed and offers to install new versions.
-Every update is verified against the EdDSA public key built into the app, so only releases signed by this repository's key are accepted.
-
 ## Features
 
 * Lightweight and fast
@@ -42,20 +81,22 @@ Every update is verified against the EdDSA public key built into the app, so onl
 * Native UI
 * Open source and free
 
-## Usage
+## Full usage guide
 
 1. <kbd>SHIFT (⇧)</kbd> + <kbd>COMMAND (⌘)</kbd> + <kbd>C</kbd> to popup MacClipboard or click on its icon in the menu bar.
 2. Type what you want to find.
-3. To select the history item you wish to copy, press <kbd>ENTER</kbd>, or click the item, or use <kbd>COMMAND (⌘)</kbd> + `n` shortcut.
-4. To choose the history item and paste, press <kbd>OPTION (⌥)</kbd> + <kbd>ENTER</kbd>, or <kbd>OPTION (⌥)</kbd> + <kbd>CLICK</kbd> the item, or use <kbd>OPTION (⌥)</kbd> + `n` shortcut.
-5. To choose the history item and paste without formatting, press <kbd>OPTION (⌥)</kbd> + <kbd>SHIFT (⇧)</kbd> + <kbd>ENTER</kbd>, or <kbd>OPTION (⌥)</kbd> + <kbd>SHIFT (⇧)</kbd> + <kbd>CLICK</kbd> the item, or use <kbd>OPTION (⌥)</kbd> + <kbd>SHIFT (⇧)</kbd> + `n` shortcut.
+3. To paste the history item into the app you were using, press <kbd>ENTER</kbd>, or click the item, or use <kbd>COMMAND (⌘)</kbd> + `n` shortcut.
+4. To only copy the history item without pasting, press <kbd>OPTION (⌥)</kbd> + <kbd>ENTER</kbd>, or <kbd>OPTION (⌥)</kbd> + <kbd>CLICK</kbd> the item, or use <kbd>OPTION (⌥)</kbd> + `n` shortcut.
+5. To paste the history item without formatting, press <kbd>COMMAND (⌘)</kbd> + <kbd>SHIFT (⇧)</kbd> + <kbd>ENTER</kbd>, or <kbd>COMMAND (⌘)</kbd> + <kbd>SHIFT (⇧)</kbd> + <kbd>CLICK</kbd> the item.
+
+   To go back to copy-only behavior, turn off **Settings → General → Paste automatically**.
 6. To delete the history item, press <kbd>OPTION (⌥)</kbd> + <kbd>DELETE (⌫)</kbd>.
 7. To see the full text of the history item, wait a couple of seconds for tooltip.
 8. To pin the history item so that it remains on top of the list, press <kbd>OPTION (⌥)</kbd> + <kbd>P</kbd>. The item will be moved to the top with a random but permanent keyboard shortcut. To unpin it, press <kbd>OPTION (⌥)</kbd> + <kbd>P</kbd> again.
 9. To clear all unpinned items, select _Clear_ in the menu, or press <kbd>OPTION (⌥)</kbd> + <kbd>COMMAND (⌘)</kbd> + <kbd>DELETE (⌫)</kbd>. To clear all items including pinned, select _Clear_ in the menu with  <kbd>OPTION (⌥)</kbd> pressed, or press <kbd>SHIFT (⇧)</kbd> + <kbd>OPTION (⌥)</kbd> + <kbd>COMMAND (⌘)</kbd> + <kbd>DELETE (⌫)</kbd>.
 10. To disable MacClipboard and ignore new copies, click on the menu icon with <kbd>OPTION (⌥)</kbd> pressed.
 11. To ignore only the next copy, click on the menu icon with <kbd>OPTION (⌥)</kbd> + <kbd>SHIFT (⇧)</kbd> pressed.
-12. To customize the behavior, check "Preferences…" window, or press <kbd>COMMAND (⌘)</kbd> + <kbd>,</kbd>.
+12. To customize the behavior, check "Settings…" window, or press <kbd>COMMAND (⌘)</kbd> + <kbd>,</kbd>.
 
 ## Advanced
 
@@ -146,7 +187,7 @@ If your shortcut produces a character (like `Option+C` → "ç"), macOS security
 ```sh
 git clone https://github.com/mk-manishkandel/MacClipboard.git
 cd MacClipboard
-xcodebuild -project Maccy.xcodeproj -scheme Maccy -configuration Release -derivedDataPath build \
+xcodebuild -project Maccy.xcodeproj -scheme Maccy -configuration Release -destination 'generic/platform=macOS' -derivedDataPath build \
   CODE_SIGN_IDENTITY="-" CODE_SIGN_STYLE=Manual DEVELOPMENT_TEAM="" ENABLE_HARDENED_RUNTIME=NO build
 open build/Build/Products/Release
 ```

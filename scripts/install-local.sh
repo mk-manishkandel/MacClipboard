@@ -6,7 +6,7 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
 APP="build/Build/Products/Release/MacClipboard.app"
 
-xcodebuild -project Maccy.xcodeproj -scheme Maccy -configuration Release -derivedDataPath build \
+xcodebuild -project Maccy.xcodeproj -scheme Maccy -configuration Release -destination 'generic/platform=macOS' -derivedDataPath build \
   CODE_SIGN_IDENTITY="-" CODE_SIGN_STYLE=Manual DEVELOPMENT_TEAM="" ENABLE_HARDENED_RUNTIME=NO \
   build | grep -E 'error:|BUILD (SUCCEEDED|FAILED)'
 cp LICENSE THIRD_PARTY_NOTICES.md "$APP/Contents/Resources/"

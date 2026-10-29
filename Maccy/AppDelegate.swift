@@ -202,7 +202,52 @@ class AppDelegate: NSObject, NSApplicationDelegate {
       return
     }
 
-    panel.toggle(height: AppState.shared.popup.height, at: .statusItem)
+    // Show a small menu instead of the history; the history opens from its "History" item.
+    statusItem.menu = statusItemMenu
+    statusItem.button?.performClick(nil)
+    statusItem.menu = nil
+  }
+
+  private var statusItemMenu: NSMenu {
+    let menu = NSMenu()
+
+    let history = NSMenuItem(
+      title: NSLocalizedString("history", value: "History", comment: ""),
+      action: #selector(openHistory),
+      keyEquivalent: ""
+    )
+    history.setShortcut(for: .popup)
+    menu.addItem(history)
+    menu.addItem(.separator())
+    menu.addItem(NSMenuItem(title: NSLocalizedString("preferences", comment: ""),
+                            action: #selector(openPreferences), keyEquivalent: ","))
+    menu.addItem(NSMenuItem(title: NSLocalizedString("about", comment: ""),
+                            action: #selector(openAbout), keyEquivalent: ""))
+    menu.addItem(NSMenuItem(title: NSLocalizedString("quit", comment: ""),
+                            action: #selector(quit), keyEquivalent: "q"))
+    menu.items.forEach { $0.target = self }
+
+    return menu
+  }
+
+  @objc
+  private func openHistory() {
+    panel.open(height: AppState.shared.popup.height, at: .statusItem)
+  }
+
+  @objc
+  private func openPreferences() {
+    AppState.shared.openPreferences()
+  }
+
+  @objc
+  private func openAbout() {
+    AppState.shared.openAbout()
+  }
+
+  @objc
+  private func quit() {
+    AppState.shared.quit()
   }
 
   private func synchronizeMenuIconText() {

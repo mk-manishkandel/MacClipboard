@@ -6,6 +6,10 @@ Already installed? MacClipboard updates itself, or open **Settings → General �
 
 <!-- release.sh adds new versions below this line -->
 
+## 2.8.8 — 2026-10-29
+
+- Easier to read and click: copied items have more space, the filter tabs are bigger, and the scroll bar no longer covers items. The history popup now opens at most 520 points tall instead of 800; drag its edge to make it taller.
+
 ## 2.8.7 — 2026-10-29
 
 - Removed unused code, including an App Store review prompt that never applied to this app. The app is smaller and does the same things as before.

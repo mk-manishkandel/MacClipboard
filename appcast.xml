@@ -6,6 +6,19 @@
         <description>Most recent changes with links to updates.</description>
         <language>en</language>
         <item>
+            <title>2.8.8</title>
+            <pubDate>Thu, 29 Oct 2026 14:43:25 +0545</pubDate>
+            <link>https://github.com/mk-manishkandel/MacClipboard</link>
+            <sparkle:version>71</sparkle:version>
+            <sparkle:shortVersionString>2.8.8</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[<ul>
+<li>Easier to read and click: copied items have more space, the filter tabs are bigger, and the scroll bar no longer covers items. The history popup now opens at most 520 points tall instead of 800; drag its edge to make it taller.</li>
+</ul>
+]]></description>
+            <enclosure url="https://github.com/mk-manishkandel/MacClipboard/releases/download/v2.8.8/MacClipboard-2.8.8.zip" length="7042708" type="application/octet-stream" sparkle:edSignature="tIVpapGRqAzA3A45IPTwHKqzjDvYYfOF6P0p+Q05aDYdFe0OZW7KFUsh9soJcYh76O5/GJIipQPjrTjK7+p7AA=="/>
+        </item>
+        <item>
             <title>2.8.7</title>
             <pubDate>Thu, 29 Oct 2026 12:55:06 +0545</pubDate>
             <link>https://github.com/mk-manishkandel/MacClipboard</link>
@@ -30,19 +43,6 @@
 </ul>
 ]]></description>
             <enclosure url="https://github.com/mk-manishkandel/MacClipboard/releases/download/v2.8.6/MacClipboard-2.8.6.zip" length="7030358" type="application/octet-stream" sparkle:edSignature="1A/ucITnffoXvEsG93hk/d60/6CaU2e+j1P4Y6hVLdflQhpSfaLQkFsRY6iwyBIQ37CqrPoo7naTsTsitQ0HAA=="/>
-        </item>
-        <item>
-            <title>2.8.5</title>
-            <pubDate>Thu, 29 Oct 2026 11:05:05 +0545</pubDate>
-            <link>https://github.com/mk-manishkandel/MacClipboard</link>
-            <sparkle:version>68</sparkle:version>
-            <sparkle:shortVersionString>2.8.5</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <description><![CDATA[<ul>
-<li>Passwords, API keys, card numbers and one-time codes are now removed from history after 30 seconds. New setting to delete old history automatically (Settings → Storage → Keep history for). The details panel no longer opens by itself (press ⌃Space to open it). If pasting is blocked, MacClipboard now asks for the Accessibility permission instead of silently doing nothing.</li>
-</ul>
-]]></description>
-            <enclosure url="https://github.com/mk-manishkandel/MacClipboard/releases/download/v2.8.5/MacClipboard-2.8.5.zip" length="7219475" type="application/octet-stream" sparkle:edSignature="CUzqFh687U1Vj+TwtPaMeF+7RCm+tDtLb2l9vlSIAVeEnZOqFEpQi5FQ+1qhRubQ9K+6yDag8IevzozwIPrHBQ=="/>
         </item>
         <item>
             <title>2.8.1</title>

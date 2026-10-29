@@ -1,6 +1,6 @@
 cask "macclipboard" do
-  version "2.8.7"
-  sha256 "6cf9a6a711388970e5668eec10d465322db4e060f9c5500fc173c4501ca86ce0"
+  version "2.8.8"
+  sha256 "be50f7028e209673a706b03d7067589c8f11a7d46b3fcce82be40d4d42b86859"
 
   url "https://github.com/mk-manishkandel/MacClipboard/releases/download/v#{version}/MacClipboard-#{version}.zip"
   name "MacClipboard"

@@ -24,6 +24,7 @@ class Footer: ItemsContainer {
     return showFooter
   }
 
+  // Preferences, About and Quit live in the menu bar icon's menu, not in the popup.
   init() { // swiftlint:disable:this function_body_length
     items = [
       FooterItem(
@@ -57,27 +58,6 @@ class Footer: ItemsContainer {
         Task { @MainActor in
           AppState.shared.history.clearAll()
         }
-      },
-      FooterItem(
-        title: "preferences",
-        shortcuts: [KeyShortcut(key: .comma)]
-      ) {
-        Task { @MainActor in
-          AppState.shared.openPreferences()
-        }
-      },
-      FooterItem(
-        title: "about",
-        help: "about_tooltip"
-      ) {
-        AppState.shared.openAbout()
-      },
-      FooterItem(
-        title: "quit",
-        shortcuts: [KeyShortcut(key: .q)],
-        help: "quit_tooltip"
-      ) {
-        AppState.shared.quit()
       }
     ]
   }

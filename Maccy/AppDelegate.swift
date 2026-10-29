@@ -189,14 +189,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     ensureMigration(key: "2026-10-29-encrypt-history") {
       _ = try? Storage.shared.encryptPlaintextRows()
     }
-
-    // The following defaults are not used since Maccy 2.x
-    // and should be removed in 3.x.
-    // - LaunchAtLogin__hasMigrated
-    // - avoidTakingFocus
-    // - saratovSeparator
-    // - maxMenuItemLength
-    // - maxMenuItems
   }
 
   @objc

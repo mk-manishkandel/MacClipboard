@@ -573,8 +573,12 @@ class MacClipboardUITests: XCTestCase {
       .click()
   }
 
+  // Clicking the menu bar icon shows a menu; its "History" item opens the popup.
   private func popUpWithMouse() {
     clickStatusItem()
+    let history = app.menuItems["History"]
+    XCTAssertTrue(history.waitForExistence(timeout: 3))
+    history.click()
     waitUntilPoppedUp()
   }
 

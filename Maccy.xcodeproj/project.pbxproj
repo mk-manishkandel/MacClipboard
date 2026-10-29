@@ -106,7 +106,6 @@
 		DA5078992CF2676B00215488 /* MouseMovedViewModifer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5078982CF2676400215488 /* MouseMovedViewModifer.swift */; };
 		DA5154D82564102900C01004 /* Sauce in Frameworks */ = {isa = PBXBuildFile; productRef = DA5154D72564102900C01004 /* Sauce */; };
 		DA555F082CF0F994009608BD /* ApplicationImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA555F072CF0F98F009608BD /* ApplicationImageCache.swift */; };
-		DA555F122CF155A8009608BD /* WrappingTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA555F112CF155A2009608BD /* WrappingTextView.swift */; };
 		DA5E62802C39E53F00F4C710 /* PreviewItemView.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA5E627E2C39E53F00F4C710 /* PreviewItemView.strings */; };
 		DA5F46512020E9FB00425C11 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA5F464F2020E4DF00425C11 /* Carbon.framework */; };
 		DA6373981E4AB9BB00263391 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA6373971E4AB9BB00263391 /* Assets.xcassets */; };
@@ -153,7 +152,6 @@
 		DAA5ACB52C1B803000B58513 /* GeneralSettings.strings in Resources */ = {isa = PBXBuildFile; fileRef = DAA5ACB32C1B803000B58513 /* GeneralSettings.strings */; };
 		DAA5ACCA2C1BEE8A00B58513 /* SoftwareUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA5ACC92C1BEE8A00B58513 /* SoftwareUpdater.swift */; };
 		DAAEB196219694AE00A7883C /* About.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAEB195219694AE00A7883C /* About.swift */; };
-		DAB082962A2B7B850053E463 /* AppStoreReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB082952A2B7B850053E463 /* AppStoreReview.swift */; };
 		DABDE97F2974706C005B32E9 /* KeyboardLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABDE97E2974706C005B32E9 /* KeyboardLayout.swift */; };
 		DAC0CA3E2C88E7A4003BF498 /* Fuse in Frameworks */ = {isa = PBXBuildFile; productRef = DAC0CA3D2C88E7A4003BF498 /* Fuse */; };
 		DAC14124232367B200FCFA30 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC14123232367B200FCFA30 /* Search.swift */; };
@@ -295,7 +293,6 @@
 		DA49EE7828B594DC002752E0 /* NSRunningApplication+WindowFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSRunningApplication+WindowFrame.swift"; sourceTree = "<group>"; };
 		DA5078982CF2676400215488 /* MouseMovedViewModifer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MouseMovedViewModifer.swift; sourceTree = "<group>"; };
 		DA555F072CF0F98F009608BD /* ApplicationImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationImageCache.swift; sourceTree = "<group>"; };
-		DA555F112CF155A2009608BD /* WrappingTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrappingTextView.swift; sourceTree = "<group>"; };
 		DA5E627F2C39E53F00F4C710 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PreviewItemView.strings; sourceTree = "<group>"; };
 		DA5F464F2020E4DF00425C11 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		DA6373971E4AB9BB00263391 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -342,7 +339,6 @@
 		DAA5ACB42C1B803000B58513 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/GeneralSettings.strings; sourceTree = "<group>"; };
 		DAA5ACC92C1BEE8A00B58513 /* SoftwareUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoftwareUpdater.swift; sourceTree = "<group>"; };
 		DAAEB195219694AE00A7883C /* About.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = About.swift; sourceTree = "<group>"; };
-		DAB082952A2B7B850053E463 /* AppStoreReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreReview.swift; sourceTree = "<group>"; };
 		DAB8CE4024E3677F00A2500E /* Maccy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Maccy.entitlements; sourceTree = "<group>"; };
 		DABDE97E2974706C005B32E9 /* KeyboardLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardLayout.swift; sourceTree = "<group>"; };
 		DAC14123232367B200FCFA30 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
@@ -517,7 +513,6 @@
 				2F578C412EFFE8920088B759 /* SlideoutView.swift */,
 				2F9B42F02F1A4999006548E5 /* ToolbarView.swift */,
 				DAA072D02C4089D3006DDFD2 /* VisualEffectView.swift */,
-				DA555F112CF155A2009608BD /* WrappingTextView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -637,7 +632,6 @@
 				DAEE38461E3DBEB100DD2966 /* AppDelegate.swift */,
 				2FB5BC9F2CD8F73C008B33F4 /* ApplicationImage.swift */,
 				DA555F072CF0F98F009608BD /* ApplicationImageCache.swift */,
-				DAB082952A2B7B850053E463 /* AppStoreReview.swift */,
 				DA0EF1871E444B2A00E58577 /* Clipboard.swift */,
 				DAE284FF232257D20080E394 /* ColorImage.swift */,
 				2F8A0DBD303A1F9D004BA51F /* ConcatenatedCollection.swift */,
@@ -878,7 +872,6 @@
 				DAA072D52C40AC52006DDFD2 /* HistoryListView.swift in Sources */,
 				2F578C422EFFE8920088B759 /* SlideoutContentView.swift in Sources */,
 				2F578C432EFFE8920088B759 /* SlideoutView.swift in Sources */,
-				DAB082962A2B7B850053E463 /* AppStoreReview.swift in Sources */,
 				2FB5BCA02CD8F73F008B33F4 /* ApplicationImage.swift in Sources */,
 				DA13D7D22C19F91B00FA9E23 /* Defaults.Keys+Names.swift in Sources */,
 				2F0EC77D2E773314003E2EA9 /* Selection.swift in Sources */,
@@ -910,7 +903,6 @@
 				2F1B61CD301BCFF2000905F9 /* ModifierFlags+Current.swift in Sources */,
 				DA13D7DC2C1A223E00FA9E23 /* HistoryItemAppEntity.swift in Sources */,
 				DAA072D12C4089D3006DDFD2 /* VisualEffectView.swift in Sources */,
-				DA555F122CF155A8009608BD /* WrappingTextView.swift in Sources */,
 				DAC929D7297A0E8B00814F19 /* NSPasteboard.PasteboardType+Types.swift in Sources */,
 				DA9C3C472C20B91D0056795D /* String+Identifiable.swift in Sources */,
 				DAA365E72C4C57E600A394F8 /* KeyEquivalent+Keys.swift in Sources */,

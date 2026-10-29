@@ -54,6 +54,7 @@ struct FooterView: View {
         FooterItemView(item: item)
       }
     }
+    .padding(.trailing, Popup.scrollerGutter)
     .invisible(!showFooter)
     .frame(maxHeight: showFooter ? nil : 0)
     .padding(.bottom, showFooter ? Popup.verticalPadding : 0)

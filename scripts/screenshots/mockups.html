@@ -60,15 +60,15 @@
   .field .typed { color: var(--text); }
   .tb { width: 24px; height: 24px; display: grid; place-items: center; color: #555; }
   .segmented {
-    margin: 8px 14px 6px; display: grid; grid-template-columns: repeat(6, 1fr);
-    background: rgba(0,0,0,0.06); border-radius: 6px; padding: 2px; font-size: 11.5px;
+    margin: 12px 14px 10px; display: grid; grid-template-columns: repeat(6, 1fr); gap: 2px;
+    background: rgba(0,0,0,0.07); border-radius: 8px; padding: 2px; font-size: 12.5px;
   }
-  .segmented span { text-align: center; padding: 2px 0; border-radius: 5px; color: #333; }
+  .segmented span { text-align: center; padding: 5px 0; border-radius: 6px; color: #333; }
   .segmented span.on { background: #fff; box-shadow: 0 1px 2px rgba(0,0,0,0.18); font-weight: 500; }
-  .list { padding: 2px 6px; }
+  .list { padding: 2px 18px 2px 6px; }
   .sep { height: 1px; background: var(--sep); margin: 5px 10px; }
   .row {
-    display: flex; align-items: center; gap: 8px; height: 26px; padding: 0 8px; border-radius: 6px;
+    display: flex; align-items: center; gap: 8px; height: 28px; padding: 0 12px 0 8px; border-radius: 6px;
   }
   .row .t { flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .row .k { color: var(--muted); font-size: 12px; }
@@ -81,7 +81,7 @@
     background: linear-gradient(135deg, #ffb36b, #ff6f91 55%, #7a6cff); }
   .pin { width: 10px; height: 10px; color: var(--muted); flex: none; }
   .row.sel .pin { color: #fff; }
-  .footer .row { height: 24px; }
+  .footer .row { height: 28px; }
 
   /* Context menu */
   .menu {
@@ -207,13 +207,13 @@
       <div class="row"><span class="t">Clear all</span><span class="k">⇧⌥⌘⌫</span></div>
     </div>
   </div>
-  <div class="menu" style="left:250px; top:96px">
+  <div class="menu" style="left:250px; top:110px">
     <div class="mi on">Paste as <svg class="chev"><use href="#chev"/></svg></div>
     <div class="ms"></div>
     <div class="mi">Pin</div>
     <div class="mi red">Delete</div>
   </div>
-  <div class="menu" style="left:465px; top:91px">
+  <div class="menu" style="left:465px; top:105px">
     <div class="mi">UPPERCASE</div>
     <div class="mi">lowercase</div>
     <div class="mi">Title Case</div>

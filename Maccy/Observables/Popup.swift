@@ -21,6 +21,8 @@ class Popup {
   static let horizontalSeparatorPadding = 6.0
   static let verticalPadding: CGFloat = 5
   static let horizontalPadding: CGFloat = 5
+  // Space on the right of the rows for the scroll bar, so it never covers them.
+  static let scrollerGutter: CGFloat = 12
   static let minimumPreviewHeight: CGFloat = 150
 
   // Radius used for items inset by the padding. Ensures they visually have the same curvature
@@ -32,9 +34,9 @@ class Popup {
   }
 
   static let itemHeight: CGFloat = if #available(macOS 26.0, *) {
-    24
+    28
   } else {
-    22
+    26
   }
 
   var needsResize = false

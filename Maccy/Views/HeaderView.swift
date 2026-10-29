@@ -42,15 +42,9 @@ struct HeaderView: View {
         .layoutPriority(1)
       }
 
-      Picker("", selection: $appState.history.typeFilter) {
-        ForEach(HistoryFilter.allCases) { filter in
-          Text(filter.title).tag(filter)
-        }
-      }
-      .pickerStyle(.segmented)
-      .labelsHidden()
-      .controlSize(.small)
-      .padding(.horizontal, Popup.horizontalPadding)
+      FilterTabs(selection: $appState.history.typeFilter)
+        .padding(.horizontal, Popup.horizontalPadding)
+        .padding(.vertical, 4)
       .opacity(appState.searchVisible ? 1 : 0)
       .accessibilityHidden(!appState.searchVisible)
     }
@@ -60,5 +54,37 @@ struct HeaderView: View {
     .background(.clear)
     .frame(maxHeight: !appState.searchVisible ? 0 : nil, alignment: .top)
     .readHeight(appState, into: \.popup.headerHeight)
+  }
+}
+
+// Tall filter tabs that share the popup's width, so they never make the popup wider.
+private struct FilterTabs: View {
+  @Binding var selection: HistoryFilter
+
+  var body: some View {
+    HStack(spacing: 2) {
+      ForEach(HistoryFilter.allCases) { filter in
+        let isSelected = filter == selection
+        Button {
+          selection = filter
+        } label: {
+          Text(filter.title)
+            .font(.callout.weight(isSelected ? .medium : .regular))
+            .lineLimit(1)
+            .minimumScaleFactor(0.75)
+            .frame(maxWidth: .infinity, minHeight: 24)
+            .contentShape(Rectangle())
+            .background(
+              RoundedRectangle(cornerRadius: 6)
+                .fill(isSelected ? Color(nsColor: .controlBackgroundColor) : .clear)
+                .shadow(color: .black.opacity(isSelected ? 0.15 : 0), radius: 1, y: 0.5)
+            )
+        }
+        .buttonStyle(.plain)
+        .accessibilityAddTraits(isSelected ? .isSelected : [])
+      }
+    }
+    .padding(2)
+    .background(Color.primary.opacity(0.07), in: RoundedRectangle(cornerRadius: 8))
   }
 }

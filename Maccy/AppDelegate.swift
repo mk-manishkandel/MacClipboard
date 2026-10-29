@@ -189,6 +189,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     ensureMigration(key: "2026-10-29-encrypt-history") {
       _ = try? Storage.shared.encryptPlaintextRows()
     }
+
+    // The popup used to grow up to 800 points tall; start existing installs at the new shorter size.
+    ensureMigration(key: "2026-10-29-shorter-popup") {
+      if Defaults[.windowSize].height > 520 {
+        Defaults[.windowSize].height = 520
+      }
+    }
   }
 
   @objc

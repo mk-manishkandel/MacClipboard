@@ -61,12 +61,12 @@ struct ListItemView<Title: View, ID: Hashable>: View {
           AppImageView(appImage: appIcon, size: NSSize(width: 15, height: 15))
           Spacer(minLength: 0)
         }
-        .padding(.leading, 4)
+        .padding(.leading, 8)
         .padding(.vertical, 5)
       }
 
       Spacer()
-        .frame(width: showIcons ? 5 : 10)
+        .frame(width: showIcons ? 8 : 12)
 
       if let accessoryImage {
         Image(nsImage: accessoryImage)
@@ -116,7 +116,7 @@ struct ListItemView<Title: View, ID: Hashable>: View {
           }
         }
       }
-      .padding(.trailing, 10)
+      .padding(.trailing, 12)
     }
     .frame(minHeight: Popup.itemHeight)
     .id(id)

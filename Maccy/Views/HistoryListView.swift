@@ -86,6 +86,7 @@ struct HistoryListView: View {
 
       if topPinsVisible {
         PinsView(items: pinnedItems)
+          .padding(.trailing, Popup.scrollerGutter)
       }
 
       if topSeparatorVisible {
@@ -105,6 +106,7 @@ struct HistoryListView: View {
         }
         .padding(.top, scrollTopPadding)
         .padding(.bottom, scrollBottomPadding)
+        .padding(.trailing, Popup.scrollerGutter)
         .task(id: appState.navigator.scrollTarget) {
           guard appState.navigator.scrollTarget != nil else { return }
 
@@ -158,6 +160,7 @@ struct HistoryListView: View {
 
       if bottomPinsVisible {
         PinsView(items: pinnedItems)
+          .padding(.trailing, Popup.scrollerGutter)
       }
     }
     .padding(.bottom, bottomPinsVisible ? bottomPadding : 0)

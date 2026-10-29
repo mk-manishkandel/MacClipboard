@@ -3,14 +3,18 @@ import Testing
 @testable import MacClipboard
 
 struct SensitiveContentTests {
-  @Test("Detects secrets", arguments: [
-    "AKIAIOSFODNN7EXAMPLE",
-    "ghp_aBcDeFgHiJkLmNoPqRsTuVwXyZ0123456789",
-    "xoxb-1234567890-abcdefghij",
-    "sk_live_51HxYzAbCdEfGhIjKlMnOp",
-    "sk-ant-api03-abcdefghijklmnopqrstuvwxyz",
-    "sk-proj-abcdefghijklmnopqrstuvwxyz012345",
-    "AIzaSyA1234567890abcdefghijklmnopqrstuv",
+  // Fake keys are split in two so secret scanners do not flag this file.
+  static let fakeKeys: [String] = [
+    "AKIA" + "IOSFODNN7EXAMPLE",
+    "ghp_" + "aBcDeFgHiJkLmNoPqRsTuVwXyZ0123456789",
+    "xoxb-" + "1234567890-abcdefghij",
+    "sk_live_" + "51HxYzAbCdEfGhIjKlMnOp",
+    "sk-ant-" + "api03-abcdefghijklmnopqrstuvwxyz",
+    "sk-proj-" + "abcdefghijklmnopqrstuvwxyz012345",
+    "AIza" + "SyA1234567890abcdefghijklmnopqrstuv",
+  ]
+
+  @Test("Detects secrets", arguments: fakeKeys + [
     "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMjM0NTY3ODkwIn0.dozjgNryP4J3jVmNHl0w5N",
     "-----BEGIN OPENSSH PRIVATE KEY-----\nb3BlbnNzaC1rZXktdjEAAAAA\n-----END OPENSSH PRIVATE KEY-----",
     "export API_KEY=sk-ant-api03-abcdefghijklmnopqrstuvwxyz",

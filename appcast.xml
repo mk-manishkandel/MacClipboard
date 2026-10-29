@@ -1,9 +1,23 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/">
-  <channel>
-    <title>MacClipboard</title>
-    <link>https://raw.githubusercontent.com/mk-manishkandel/MacClipboard/main/appcast.xml</link>
-    <description>Most recent changes with links to updates.</description>
-    <language>en</language>
-  </channel>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+    <channel>
+        <title>MacClipboard</title>
+        <link>https://raw.githubusercontent.com/mk-manishkandel/MacClipboard/main/appcast.xml</link>
+        <description>Most recent changes with links to updates.</description>
+        <language>en</language>
+        <item>
+            <title>2.8.1</title>
+            <pubDate>Thu, 29 Oct 2026 09:06:39 +0545</pubDate>
+            <link>https://github.com/mk-manishkandel/MacClipboard</link>
+            <sparkle:version>64</sparkle:version>
+            <sparkle:shortVersionString>2.8.1</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description><![CDATA[<ul>
+<li>First MacClipboard release: encrypted clipboard history, automatic pasting, and over-the-air updates.</li>
+</ul>
+]]></description>
+            <enclosure url="https://github.com/mk-manishkandel/MacClipboard/releases/download/v2.8.1/MacClipboard-2.8.1.zip" length="5078577" type="application/octet-stream" sparkle:edSignature="xb93UYkNG93Fu1Il0D94hzqHmY1UB7TPQ2ZB+XNYJIjYFw+wvR2RPkUzNCdfSSIBa0aujw4zeS1naLEfUqlcCw=="/>
+        </item>
+    </channel>
 </rss>

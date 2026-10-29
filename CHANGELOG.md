@@ -6,6 +6,10 @@ Already installed? MacClipboard updates itself, or open **Settings → General �
 
 <!-- release.sh adds new versions below this line -->
 
+## 2.8.4 — 2026-10-29
+
+- The history popup is simpler: Preferences, About and Quit are now in the menu bar icon's menu.
+
 ## 2.8.3 — 2026-10-29
 
 - Clicking the menu bar icon now opens a menu. Choose **History** to see your clipboard history, or press **⇧⌘C**.

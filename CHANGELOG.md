@@ -6,6 +6,10 @@ Already installed? MacClipboard updates itself, or open **Settings → General �
 
 <!-- release.sh adds new versions below this line -->
 
+## 2.8.5 — 2026-10-29
+
+- Passwords, API keys, card numbers and one-time codes are now removed from history after 30 seconds. New setting to delete old history automatically (Settings → Storage → Keep history for). The details panel no longer opens by itself (press ⌃Space to open it). If pasting is blocked, MacClipboard now asks for the Accessibility permission instead of silently doing nothing.
+
 ## 2.8.4 — 2026-10-29
 
 - The history popup is simpler: Preferences, About and Quit are now in the menu bar icon's menu.

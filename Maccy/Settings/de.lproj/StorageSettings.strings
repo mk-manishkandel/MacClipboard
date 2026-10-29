@@ -12,3 +12,15 @@
 "FirstCopiedAt" = "Zeitpunkt des ersten Eintrags";
 "NumberOfCopies" = "Häufigkeit der Einträge";
 "SortByTooltip" = "Standard: Zeitpunkt des letzten Eintrags.";
+"KeepHistoryFor" = "Verlauf behalten:";
+"KeepHistoryForDescription" = "Angeheftete Einträge werden immer behalten.";
+"KeepForever" = "Immer";
+"KeepHour" = "1 Stunde";
+"KeepDay" = "1 Tag";
+"KeepWeek" = "7 Tage";
+"KeepMonth" = "30 Tage";
+"SensitiveContent" = "Passwörter und Geheimnisse:";
+"SensitiveContentDescription" = "Kopien, die wie Passwörter, API-Schlüssel, Kartennummern oder Einmalcodes aussehen. Kopien aus Passwort-Managern werden nie gespeichert.";
+"SensitiveRemoveAfterDelay" = "Nach 30 Sekunden entfernen";
+"SensitiveIgnore" = "Nicht speichern";
+"SensitiveSave" = "Wie andere Kopien speichern";

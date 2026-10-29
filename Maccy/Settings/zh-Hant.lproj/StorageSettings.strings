@@ -12,3 +12,15 @@
 "FirstCopiedAt" = "首次拷貝時間";
 "NumberOfCopies" = "拷貝次數";
 "SortByTooltip" = "預設：上次拷貝時間。";
+"KeepHistoryFor" = "歷史記錄保留：";
+"KeepHistoryForDescription" = "已固定的項目一律保留。";
+"KeepForever" = "永久";
+"KeepHour" = "1 小時";
+"KeepDay" = "1 天";
+"KeepWeek" = "7 天";
+"KeepMonth" = "30 天";
+"SensitiveContent" = "密碼與機密資訊：";
+"SensitiveContentDescription" = "看起來像密碼、API 金鑰、卡號或一次性驗證碼的拷貝。來自密碼管理器的拷貝永遠不會儲存。";
+"SensitiveRemoveAfterDelay" = "30 秒後移除";
+"SensitiveIgnore" = "不儲存";
+"SensitiveSave" = "像其他拷貝一樣儲存";

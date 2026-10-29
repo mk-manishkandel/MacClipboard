@@ -12,3 +12,15 @@
 "FirstCopiedAt" = "Time of first copy";
 "NumberOfCopies" = "Number of copies";
 "SortByTooltip" = "Default: Time of last copy.";
+"KeepHistoryFor" = "Keep history for:";
+"KeepHistoryForDescription" = "Pinned items are always kept.";
+"KeepForever" = "Forever";
+"KeepHour" = "1 hour";
+"KeepDay" = "1 day";
+"KeepWeek" = "7 days";
+"KeepMonth" = "30 days";
+"SensitiveContent" = "Passwords and secrets:";
+"SensitiveContentDescription" = "Copies that look like passwords, API keys, card numbers or one-time codes. Copies from password managers are never saved.";
+"SensitiveRemoveAfterDelay" = "Remove after 30 seconds";
+"SensitiveIgnore" = "Don't save";
+"SensitiveSave" = "Save like other copies";

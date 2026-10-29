@@ -12,3 +12,15 @@
 "FirstCopiedAt" = "Tijd van eerste kopie";
 "NumberOfCopies" = "Aantal kopieën";
 "SortByTooltip" = "Standaard: Tijd van laatste kopie.";
+"KeepHistoryFor" = "Bewaar geschiedenis:";
+"KeepHistoryForDescription" = "Vastgezette onderdelen worden altijd bewaard.";
+"KeepForever" = "Altijd";
+"KeepHour" = "1 uur";
+"KeepDay" = "1 dag";
+"KeepWeek" = "7 dagen";
+"KeepMonth" = "30 dagen";
+"SensitiveContent" = "Wachtwoorden en geheimen:";
+"SensitiveContentDescription" = "Kopieën die eruitzien als wachtwoorden, API-sleutels, kaartnummers of eenmalige codes. Kopieën uit wachtwoordbeheerders worden nooit bewaard.";
+"SensitiveRemoveAfterDelay" = "Na 30 seconden verwijderen";
+"SensitiveIgnore" = "Niet bewaren";
+"SensitiveSave" = "Bewaren zoals andere kopieën";

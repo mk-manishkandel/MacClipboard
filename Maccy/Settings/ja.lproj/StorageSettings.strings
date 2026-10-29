@@ -12,3 +12,15 @@
 "FirstCopiedAt" = "最初にコピーした日時";
 "NumberOfCopies" = "コピー回数";
 "SortByTooltip" = "デフォルト：最後にコピーした日時。";
+"KeepHistoryFor" = "履歴の保持期間:";
+"KeepHistoryForDescription" = "固定した項目は常に保持されます。";
+"KeepForever" = "無期限";
+"KeepHour" = "1時間";
+"KeepDay" = "1日";
+"KeepWeek" = "7日";
+"KeepMonth" = "30日";
+"SensitiveContent" = "パスワードと秘密情報:";
+"SensitiveContentDescription" = "パスワード、APIキー、カード番号、ワンタイムコードのように見えるコピー。パスワードマネージャからのコピーは保存されません。";
+"SensitiveRemoveAfterDelay" = "30秒後に削除";
+"SensitiveIgnore" = "保存しない";
+"SensitiveSave" = "通常のコピーとして保存";

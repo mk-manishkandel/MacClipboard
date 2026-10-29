@@ -12,3 +12,15 @@
 "FirstCopiedAt" = "İlk kopyanın zamanı";
 "NumberOfCopies" = "Kopya sayısı";
 "SortByTooltip" = "Saptanmış: Son kopyanın zamanı.";
+"KeepHistoryFor" = "Geçmişi sakla:";
+"KeepHistoryForDescription" = "Sabitlenen öğeler her zaman saklanır.";
+"KeepForever" = "Her zaman";
+"KeepHour" = "1 saat";
+"KeepDay" = "1 gün";
+"KeepWeek" = "7 gün";
+"KeepMonth" = "30 gün";
+"SensitiveContent" = "Parolalar ve gizli bilgiler:";
+"SensitiveContentDescription" = "Parola, API anahtarı, kart numarası veya tek kullanımlık koda benzeyen kopyalar. Parola yöneticilerinden yapılan kopyalar asla kaydedilmez.";
+"SensitiveRemoveAfterDelay" = "30 saniye sonra kaldır";
+"SensitiveIgnore" = "Kaydetme";
+"SensitiveSave" = "Diğer kopyalar gibi kaydet";

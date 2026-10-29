@@ -12,3 +12,15 @@
 "FirstCopiedAt" = "Data da primeira cópia";
 "NumberOfCopies" = "Número de cópias";
 "SortByTooltip" = "Padrão: Data de última cópia.";
+"KeepHistoryFor" = "Manter histórico por:";
+"KeepHistoryForDescription" = "Itens fixados são sempre mantidos.";
+"KeepForever" = "Sempre";
+"KeepHour" = "1 hora";
+"KeepDay" = "1 dia";
+"KeepWeek" = "7 dias";
+"KeepMonth" = "30 dias";
+"SensitiveContent" = "Senhas e segredos:";
+"SensitiveContentDescription" = "Cópias que parecem senhas, chaves de API, números de cartão ou códigos de uso único. Cópias de gerenciadores de senhas nunca são salvas.";
+"SensitiveRemoveAfterDelay" = "Remover após 30 segundos";
+"SensitiveIgnore" = "Não salvar";
+"SensitiveSave" = "Salvar como as outras cópias";

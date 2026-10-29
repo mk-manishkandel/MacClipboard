@@ -12,3 +12,15 @@
 "FirstCopiedAt" = "처음 복사한 시간";
 "NumberOfCopies" = "복사 횟수";
 "SortByTooltip" = "기본값: 마지막 복사한 시간.";
+"KeepHistoryFor" = "기록 보관 기간:";
+"KeepHistoryForDescription" = "고정된 항목은 항상 보관됩니다.";
+"KeepForever" = "영구";
+"KeepHour" = "1시간";
+"KeepDay" = "1일";
+"KeepWeek" = "7일";
+"KeepMonth" = "30일";
+"SensitiveContent" = "암호 및 비밀 정보:";
+"SensitiveContentDescription" = "암호, API 키, 카드 번호 또는 일회용 코드처럼 보이는 복사본입니다. 암호 관리자에서 복사한 항목은 저장되지 않습니다.";
+"SensitiveRemoveAfterDelay" = "30초 후 삭제";
+"SensitiveIgnore" = "저장 안 함";
+"SensitiveSave" = "일반 복사본처럼 저장";

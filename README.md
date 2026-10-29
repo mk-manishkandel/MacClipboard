@@ -49,7 +49,13 @@
      ```
 5. Look for the clipboard icon in your menu bar. You are ready to go.
 
-**Homebrew:** `brew install --cask mk-manishkandel/tap/macclipboard`
+**Homebrew:**
+
+```sh
+brew tap mk-manishkandel/tap
+brew trust mk-manishkandel/tap
+brew install --cask macclipboard
+```
 
 **Updates:** MacClipboard checks for new versions and shows what changed before installing
 (see [What's new](CHANGELOG.md)). You can also check any time in

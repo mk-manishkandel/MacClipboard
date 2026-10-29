@@ -74,6 +74,11 @@ class FloatingPanel<Content: View>: NSPanel, NSWindowDelegate {
     }
   }
 
+  // Swift 6.3 (Xcode 26.6) crashes in the optimizer while inlining this class's
+  // implicit deinit. An explicit, unoptimized deinit avoids the crash.
+  @_optimize(none)
+  deinit {}
+
   func toggle(height: CGFloat, at popupPosition: PopupPosition = Defaults[.popupPosition]) {
     if isPresented {
       close()

@@ -1,12 +1,52 @@
-> [!WARNING]
-> **Beware of fake websites impersonating Maccy.** Malicious sites (such as `maccyapp.net` and `maccyapp.com`) distribute malware disguised as Maccy. [**maccy.app**](https://maccy.app) is the **only** official website.
+# MacClipboard
 
-<img width="128px" src="https://maccy.app/img/maccy/Logo.png" alt="Logo" />
+[![Release](https://img.shields.io/github/v/release/mk-manishkandel/MacClipboard)](https://github.com/mk-manishkandel/MacClipboard/releases/latest)
 
-# [Maccy](https://maccy.app)
+MacClipboard is a privacy-focused build of [Maccy](https://github.com/p0deje/Maccy), the open-source clipboard manager by Alex Rodionov, distributed under the same MIT license.
 
-[![Downloads](https://img.shields.io/github/downloads/p0deje/Maccy/total.svg)](https://github.com/p0deje/Maccy/releases/latest)
-[![Build Status](https://img.shields.io/bitrise/716921b669780314/master?token=3pMiCb5dpFzlO-7jTYtO3Q)](https://app.bitrise.io/app/716921b669780314)
+## Privacy
+
+* Clipboard history is stored **only on your Mac** in `~/Library/Application Support/Maccy/Storage.sqlite`.
+* There is no analytics, telemetry, crash reporting or cloud sync.
+* The only network request the app makes is the optional update check. It downloads
+  [`appcast.xml`](appcast.xml) from this repository and, if you accept an update, the release zip from GitHub Releases.
+  Nothing about your clipboard is sent. You can turn the check off in **Settings → General → Check for updates**.
+
+## Install
+
+1. Download `MacClipboard-<version>.zip` from the [latest release](https://github.com/mk-manishkandel/MacClipboard/releases/latest).
+2. Unzip it and move `Maccy.app` to `/Applications`.
+3. The app is not notarized by Apple, so on first launch right-click it and choose **Open**
+   (or run `xattr -dr com.apple.quarantine /Applications/Maccy.app`).
+4. Grant Accessibility permission when asked so it can paste for you.
+
+After that, updates arrive over the air: the app checks this repository's feed and offers to install new versions.
+Every update is verified against the EdDSA public key built into the app, so only releases signed by this repository's key are accepted.
+
+## Build from source
+
+```sh
+git clone https://github.com/mk-manishkandel/MacClipboard.git
+cd MacClipboard
+xcodebuild -project Maccy.xcodeproj -scheme Maccy -configuration Release -derivedDataPath build \
+  CODE_SIGN_IDENTITY="-" CODE_SIGN_STYLE=Manual DEVELOPMENT_TEAM="" build
+open build/Build/Products/Release
+```
+
+## Publishing a release (maintainers)
+
+```sh
+scripts/release.sh 2.8.1 "What changed in this version."
+```
+
+The script bumps the version, builds, zips, signs the update with the Sparkle private key from your Keychain
+(account `MacClipboard`), updates `appcast.xml`, creates the GitHub release and pushes the new feed.
+Back up the private key with `generate_keys --account MacClipboard -x private-key.txt` and keep it secret:
+without it you cannot ship updates to existing installs.
+
+---
+
+The rest of this document is the upstream Maccy documentation.
 
 Maccy is a lightweight clipboard manager for macOS. It keeps the history of what you copy
 and lets you quickly navigate, search, and use previous clipboard contents.

@@ -1,0 +1,68 @@
+#!/bin/bash
+# Builds, signs and publishes a MacClipboard release that existing installs pick up over the air.
+#
+# Usage: scripts/release.sh <version> "<release notes>"
+# Example: scripts/release.sh 2.8.1 "Fixed a crash when pasting images."
+#
+# Requires: Xcode, gh (logged in), and the Sparkle EdDSA private key in your login
+# Keychain under the account "MacClipboard" (created by generate_keys).
+set -euo pipefail
+
+VERSION="${1:?usage: scripts/release.sh <version> \"<release notes>\"}"
+NOTES="${2:?release notes required}"
+REPO="mk-manishkandel/MacClipboard"
+TAG="v$VERSION"
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+PBXPROJ="$ROOT/Maccy.xcodeproj/project.pbxproj"
+WORK="$ROOT/release/$TAG"
+SPARKLE_BIN="$ROOT/build/SourcePackages/artifacts/sparkle/Sparkle/bin"
+
+cd "$ROOT"
+
+if [ -n "$(git status --porcelain)" ]; then
+  echo "Working tree is not clean. Commit or stash your changes first." >&2
+  exit 1
+fi
+if git rev-parse "$TAG" >/dev/null 2>&1; then
+  echo "Tag $TAG already exists." >&2
+  exit 1
+fi
+
+# Sparkle decides what is "newer" by CFBundleVersion, so it must always increase.
+BUILD=$(( $(grep -m1 'CURRENT_PROJECT_VERSION = ' "$PBXPROJ" | grep -o '[0-9]\+') + 1 ))
+sed -i '' -E "s/CURRENT_PROJECT_VERSION = [0-9]+;/CURRENT_PROJECT_VERSION = $BUILD;/" "$PBXPROJ"
+sed -i '' -E "s/MARKETING_VERSION = [0-9.]+;/MARKETING_VERSION = $VERSION;/" "$PBXPROJ"
+echo "==> Building $VERSION ($BUILD)"
+
+xcodebuild -project Maccy.xcodeproj -scheme Maccy -configuration Release \
+  -derivedDataPath build \
+  CODE_SIGN_IDENTITY="-" CODE_SIGN_STYLE=Manual DEVELOPMENT_TEAM="" \
+  clean build | grep -E 'error:|BUILD (SUCCEEDED|FAILED)'
+
+APP="build/Build/Products/Release/Maccy.app"
+rm -rf "$WORK" && mkdir -p "$WORK"
+ZIP="$WORK/MacClipboard-$VERSION.zip"
+ditto -c -k --sequesterRsrc --keepParent "$APP" "$ZIP"
+
+# generate_appcast merges new archives into the existing feed and signs them with the Keychain key.
+cp appcast.xml "$WORK/appcast.xml"
+printf '<ul>\n<li>%s</li>\n</ul>\n' "$NOTES" > "$WORK/MacClipboard-$VERSION.html"
+"$SPARKLE_BIN/generate_appcast" \
+  --account MacClipboard \
+  --download-url-prefix "https://github.com/$REPO/releases/download/$TAG/" \
+  --link "https://github.com/$REPO" \
+  --embed-release-notes \
+  -o "$WORK/appcast.xml" \
+  "$WORK"
+cp "$WORK/appcast.xml" appcast.xml
+
+echo "==> Publishing GitHub release $TAG"
+git add "$PBXPROJ" appcast.xml
+git commit -m "Release $VERSION"
+git tag "$TAG"
+# The zip must be downloadable before the new appcast goes live on main, so push main last.
+git push origin "$TAG"
+gh release create "$TAG" "$ZIP" --repo "$REPO" --title "MacClipboard $VERSION" --notes "$NOTES"
+git push origin HEAD:main
+
+echo "==> Done. Installed copies will see $VERSION on their next update check."

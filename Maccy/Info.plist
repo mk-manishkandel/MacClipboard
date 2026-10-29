@@ -32,8 +32,10 @@
 	<true/>
 	<key>SUEnableInstallerLauncherService</key>
 	<true/>
+	<key>SUPublicEDKey</key>
+	<string>D+g1e9HO5q0M+P/9CeCK2Gae6jj82pqeh2mWcWt1IxU=</string>
 	<key>SUFeedURL</key>
-	<string>https://raw.githubusercontent.com/p0deje/Maccy/master/appcast.xml</string>
+	<string>https://raw.githubusercontent.com/mk-manishkandel/MacClipboard/main/appcast.xml</string>
 	<key>UTExportedTypeDeclarations</key>
 	<array>
 	<dict>

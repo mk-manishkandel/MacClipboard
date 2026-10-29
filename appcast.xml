@@ -6,6 +6,19 @@
         <description>Most recent changes with links to updates.</description>
         <language>en</language>
         <item>
+            <title>2.8.6</title>
+            <pubDate>Thu, 29 Oct 2026 12:42:46 +0545</pubDate>
+            <link>https://github.com/mk-manishkandel/MacClipboard</link>
+            <sparkle:version>69</sparkle:version>
+            <sparkle:shortVersionString>2.8.6</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[<ul>
+<li>Right-click any text item and choose Paste as to paste it in UPPERCASE, lowercase or Title Case, with spaces trimmed, with lines joined, as pretty JSON, or as a link with tracking codes removed. Save text you use often as a snippet with New Snippet… in the menu bar menu. New tabs under the search field show only text, links, images, files or snippets. The app is now English only.</li>
+</ul>
+]]></description>
+            <enclosure url="https://github.com/mk-manishkandel/MacClipboard/releases/download/v2.8.6/MacClipboard-2.8.6.zip" length="7030358" type="application/octet-stream" sparkle:edSignature="1A/ucITnffoXvEsG93hk/d60/6CaU2e+j1P4Y6hVLdflQhpSfaLQkFsRY6iwyBIQ37CqrPoo7naTsTsitQ0HAA=="/>
+        </item>
+        <item>
             <title>2.8.5</title>
             <pubDate>Thu, 29 Oct 2026 11:05:05 +0545</pubDate>
             <link>https://github.com/mk-manishkandel/MacClipboard</link>
@@ -30,19 +43,6 @@
 </ul>
 ]]></description>
             <enclosure url="https://github.com/mk-manishkandel/MacClipboard/releases/download/v2.8.4/MacClipboard-2.8.4.zip" length="7159347" type="application/octet-stream" sparkle:edSignature="H9oGJ2yD3yaJhsX4Co6fyaY2ZZjt4o8Mkceh/N7+KuV3e8AE0iHjF2f3dpXhlVabOGYzKCWBaJBicIX5DwHGAg=="/>
-        </item>
-        <item>
-            <title>2.8.3</title>
-            <pubDate>Thu, 29 Oct 2026 09:56:02 +0545</pubDate>
-            <link>https://github.com/mk-manishkandel/MacClipboard</link>
-            <sparkle:version>66</sparkle:version>
-            <sparkle:shortVersionString>2.8.3</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <description><![CDATA[<ul>
-<li>Clicking the menu bar icon now opens a menu. Choose History to see your clipboard history, or press ⇧⌘C.</li>
-</ul>
-]]></description>
-            <enclosure url="https://github.com/mk-manishkandel/MacClipboard/releases/download/v2.8.3/MacClipboard-2.8.3.zip" length="7164471" type="application/octet-stream" sparkle:edSignature="X6D6g06fWU3vgRoMiI/oBiQnh+oO/u9ScQWV6bN/2ElAZgdwUd5YsSmoeB1WudyDMkPAE1R9XOS4pwxaniXpDQ=="/>
         </item>
         <item>
             <title>2.8.1</title>

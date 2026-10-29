@@ -6,6 +6,10 @@ Already installed? MacClipboard updates itself, or open **Settings → General �
 
 <!-- release.sh adds new versions below this line -->
 
+## 2.8.6 — 2026-10-29
+
+- Right-click any text item and choose Paste as to paste it in UPPERCASE, lowercase or Title Case, with spaces trimmed, with lines joined, as pretty JSON, or as a link with tracking codes removed. Save text you use often as a snippet with New Snippet… in the menu bar menu. New tabs under the search field show only text, links, images, files or snippets. The app is now English only.
+
 ## 2.8.5 — 2026-10-29
 
 - Passwords, API keys, card numbers and one-time codes are now removed from history after 30 seconds. New setting to delete old history automatically (Settings → Storage → Keep history for). The details panel no longer opens by itself (press ⌃Space to open it). If pasting is blocked, MacClipboard now asks for the Accessibility permission instead of silently doing nothing.

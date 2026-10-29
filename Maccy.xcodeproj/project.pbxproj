@@ -1845,7 +1845,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 65;
+				CURRENT_PROJECT_VERSION = 66;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = MN3X4648SC;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1861,7 +1861,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 2.8.2;
+				MARKETING_VERSION = 2.8.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mkmanishkandel.MacClipboard;
 				PRODUCT_NAME = MacClipboard;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1881,7 +1881,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 65;
+				CURRENT_PROJECT_VERSION = 66;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = MN3X4648SC;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1896,7 +1896,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 2.8.2;
+				MARKETING_VERSION = 2.8.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mkmanishkandel.MacClipboard;
 				PRODUCT_NAME = MacClipboard;
 				PROVISIONING_PROFILE_SPECIFIER = "";

@@ -29,17 +29,26 @@ jobs:
 
       - name: Build universal app
         run: |
-          set -o pipefail
-          xcodebuild -project Maccy.xcodeproj -scheme Maccy -configuration Release \
+          # Keep the full log so errors are shown even when they are far from the end.
+          if ! xcodebuild -project Maccy.xcodeproj -scheme Maccy -configuration Release \
             -destination 'generic/platform=macOS' -derivedDataPath build \
             CODE_SIGN_IDENTITY="-" CODE_SIGN_STYLE=Manual DEVELOPMENT_TEAM="" ENABLE_HARDENED_RUNTIME=NO \
-            build | tail -n 20
+            build > build.log 2>&1; then
+            grep -E 'error:' build.log | sort -u | head -n 50
+            tail -n 30 build.log
+            exit 1
+          fi
+          tail -n 3 build.log
           lipo -archs build/Build/Products/Release/MacClipboard.app/Contents/MacOS/MacClipboard
 
       - name: Run unit tests
         run: |
-          set -o pipefail
-          xcodebuild test -project Maccy.xcodeproj -scheme Maccy -destination 'platform=macOS' \
+          if ! xcodebuild test -project Maccy.xcodeproj -scheme Maccy -destination 'platform=macOS' \
             -only-testing:MaccyTests -derivedDataPath build/test \
             CODE_SIGN_IDENTITY="-" CODE_SIGN_STYLE=Manual DEVELOPMENT_TEAM="" ENABLE_HARDENED_RUNTIME=NO \
-            | grep -E '✔|✘|error:|Test run|TEST (SUCCEEDED|FAILED)'
+            > test.log 2>&1; then
+            grep -E '✘|error:|Fatal error|recorded an issue' test.log | sort -u | head -n 50
+            tail -n 30 test.log
+            exit 1
+          fi
+          grep -E 'Test run with|TEST SUCCEEDED' test.log

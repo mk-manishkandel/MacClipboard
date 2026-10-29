@@ -26,6 +26,8 @@
 * **Never lose something you copied.** Every text, link, image and file you copy is saved in a searchable history.
 * **Paste in one click.** Press <kbd>⇧</kbd><kbd>⌘</kbd><kbd>C</kbd>, pick an item, and it is pasted straight into the text field you are typing in.
 * **Private by design.** Your history never leaves your Mac and is encrypted on disk. No accounts, no tracking, no cloud.
+* **Forgets your secrets.** Passwords, API keys, card numbers and one-time codes are removed after 30 seconds, and
+  old history can be deleted automatically after a day, a week or a month.
 * **Updates itself.** New versions install automatically, and every update is cryptographically verified.
 
 ## Install
@@ -37,8 +39,13 @@
      scroll down and click **Open Anyway** next to *"MacClipboard was blocked"*, then confirm with your password.
    * **macOS 14 Sonoma:** right-click the app, choose **Open**, then click **Open** again.
    * **Using Terminal instead:** `xattr -dr com.apple.quarantine /Applications/MacClipboard.app`
-4. The first time you pick an item, macOS asks for **Accessibility** permission. Open
-   **System Settings → Privacy & Security → Accessibility** and turn on **MacClipboard**. This lets it paste for you.
+4. The first time you pick an item, macOS asks for **Accessibility** permission. Click **Open System Settings** and
+   turn on **MacClipboard**. This lets it paste for you.
+   * **Not pasting?** Reset the permission and turn it on again:
+     ```sh
+     tccutil reset Accessibility com.mkmanishkandel.MacClipboard
+     open "x-apple.systempreferences:com.apple.preference.security?Privacy_Accessibility"
+     ```
 5. Look for the clipboard icon in your menu bar. You are ready to go.
 
 **Updates:** MacClipboard checks for new versions and shows what changed before installing
@@ -70,6 +77,9 @@ MIT License, and is not affiliated with or endorsed by the Maccy project. See [C
   `~/Library/Containers/com.mkmanishkandel.MacClipboard/Data/Library/Application Support/MacClipboard/Storage.sqlite`.
 * The copied contents and titles in that database are **encrypted with AES-256-GCM**. The key is generated on first
   launch and kept in your login Keychain, so the file is unreadable to other apps, backups or anyone who copies it.
+* Copies that look like passwords, API keys, credit card numbers or one-time codes are removed from history after
+  30 seconds (or never saved, if you prefer). Copies that password managers mark as private are never saved.
+* **Settings → Storage → Keep history for** removes unpinned items after 1 hour, 1 day, 7 days or 30 days.
 * There is no analytics, telemetry, crash reporting or cloud sync.
 * The only network request the app makes is the optional update check. It downloads
   [`appcast.xml`](appcast.xml) from this repository and, if you accept an update, the release zip from GitHub Releases.

@@ -29,6 +29,10 @@
 * **Private by design.** Your history never leaves your Mac and is encrypted on disk. No accounts, no tracking, no cloud.
 * **Forgets your secrets.** Passwords, API keys, card numbers and one-time codes are removed after 30 seconds, and
   old history can be deleted automatically after a day, a week or a month.
+* **Text tools.** Right-click any item to paste it as UPPERCASE, lowercase, Title Case, with spaces trimmed,
+  with lines joined, as pretty JSON, or as a link without tracking codes.
+* **Snippets.** Save text you use often, like your address or a standard reply, and paste it any time.
+* **Find things fast.** Search as you type, or use the tabs to show only text, links, images, files or snippets.
 * **Updates itself.** New versions install automatically, and every update is cryptographically verified.
 
 ## Install
@@ -75,6 +79,9 @@ brew install --cask macclipboard
 | Paste without formatting | <kbd>⇧</kbd> <kbd>⌘</kbd> <kbd>Enter</kbd> |
 | Pin an item to the top | <kbd>⌥</kbd> <kbd>P</kbd> |
 | Delete an item | <kbd>⌥</kbd> <kbd>⌫</kbd> |
+| Paste as UPPERCASE, pretty JSON, clean link… | Right-click an item → **Paste as** |
+| Show the full item and its details | <kbd>⌃</kbd> <kbd>Space</kbd> |
+| Add a snippet | Menu bar icon → **New Snippet…** |
 | Open settings | <kbd>⌘</kbd> <kbd>,</kbd> |
 
 MacClipboard is an independent fork of [Maccy](https://github.com/p0deje/Maccy) by Alex Rodionov, used under the
@@ -96,11 +103,48 @@ MIT License, and is not affiliated with or endorsed by the Maccy project. See [C
 
 ## Features
 
-* Lightweight and fast
-* Keyboard-first
-* Secure and private
-* Native UI
-* Open source and free
+### Clipboard history
+* Saves text, rich text, links, images and files you copy, with the app each one came from.
+* Search as you type. Results update instantly, even with thousands of items.
+* Filter tabs under the search field: **All**, **Text**, **Links**, **Images**, **Files** and **Snippets**.
+* Pin important items to the top, each with its own keyboard shortcut.
+* Press <kbd>⌃</kbd> <kbd>Space</kbd> to see the full item, a large image preview, where it was copied from and when.
+
+### Pasting
+* Pastes the item straight into the app you were using. Turn this off in **Settings → General → Paste automatically**
+  if you only want it copied.
+* Paste without formatting with <kbd>⇧</kbd> <kbd>⌘</kbd> <kbd>Enter</kbd>.
+* **Paste as** (right-click an item):
+
+  | Option | What it does |
+  |---|---|
+  | UPPERCASE / lowercase / Title Case | Changes the letter case |
+  | Trim spaces | Removes extra spaces at the start and end of lines and between words |
+  | Join lines | Turns several lines into one |
+  | Pretty JSON | Formats JSON so it is easy to read |
+  | Clean link | Removes tracking codes such as `utm_source`, `fbclid` and `gclid` from a link |
+
+  Options that would not change the item are hidden.
+
+### Snippets
+* Click the menu bar icon and choose **New Snippet…** to save text you paste often.
+* Snippets stay pinned at the top. **Clear** keeps them; only **Clear all** removes them.
+* Open the **Snippets** tab to see only your snippets.
+
+### Privacy and security
+* History is stored only on your Mac and encrypted with AES-256-GCM. The key lives in your Keychain.
+* Detects passwords, API keys, private keys, credit card numbers and one-time codes, and removes them after
+  30 seconds. In **Settings → Storage** you can choose to never save them, or to keep them like anything else.
+* Never saves copies that password managers mark as private.
+* **Keep history for** forever, 30 days, 7 days, 1 day or 1 hour. Pinned items and snippets are always kept.
+* Pause saving copies by <kbd>⌥</kbd>-clicking the menu bar icon.
+* No accounts, analytics or cloud sync.
+
+### Everyday use
+* Click the menu bar icon for a menu with **History**, **New Snippet…**, **Settings…**, **About** and **Quit**.
+* Choose your own shortcut, popup position, theme and how many items to keep.
+* Updates download and install automatically, and each one is verified with a digital signature.
+* Native, lightweight and free. Runs on Apple silicon and Intel Macs with macOS 14 or newer.
 
 ## Full usage guide
 

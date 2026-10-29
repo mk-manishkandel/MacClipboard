@@ -70,6 +70,10 @@ nonisolated extension Defaults.Keys {
   static let showTitle = Key<Bool>("showTitle", default: true, suite: preferencesSuite)
   static let size = Key<Int>("historySize", default: 200, suite: preferencesSuite)
   static let sortBy = Key<Sorter.By>("sortBy", default: .lastCopiedAt, suite: preferencesSuite)
+  static let keepHistoryFor = Key<HistoryRetention>("keepHistoryFor", default: .forever, suite: preferencesSuite)
+  static let sensitiveContent = Key<SensitiveContent.Handling>(
+    "sensitiveContent", default: .removeAfterDelay, suite: preferencesSuite
+  )
   static let suppressClearAlert = Key<Bool>("suppressClearAlert", default: false, suite: preferencesSuite)
   static let windowSize = Key<NSSize>("windowSize", default: NSSize(width: 450, height: 800), suite: preferencesSuite)
   static let windowPosition = Key<NSPoint>("windowPosition", default: NSPoint(x: 0.5, y: 0.8), suite: preferencesSuite)

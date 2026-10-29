@@ -58,6 +58,8 @@ struct StorageSettingsPane: View {
 
   @Default(.size) private var size
   @Default(.sortBy) private var sortBy
+  @Default(.keepHistoryFor) private var keepHistoryFor
+  @Default(.sensitiveContent) private var sensitiveContent
 
   @State private var viewModel = ViewModel()
   @State private var storageSize = Storage.shared.size
@@ -109,6 +111,44 @@ struct StorageSettingsPane: View {
               storageSize = Storage.shared.size
             }
         }
+      }
+
+      Settings.Section(label: {
+        Text(NSLocalizedString("KeepHistoryFor", tableName: "StorageSettings", value: "Keep history for:", comment: ""))
+      }) {
+        Picker("", selection: $keepHistoryFor) {
+          ForEach(HistoryRetention.allCases) { retention in
+            Text(retention.description)
+          }
+        }
+        .labelsHidden()
+        .frame(width: 160)
+        Text(NSLocalizedString("KeepHistoryForDescription", tableName: "StorageSettings",
+                               value: "Pinned items are always kept.", comment: ""))
+          .controlSize(.small)
+          .foregroundStyle(.gray)
+      }
+
+      Settings.Section(label: {
+        Text(NSLocalizedString("SensitiveContent", tableName: "StorageSettings",
+                               value: "Passwords and secrets:", comment: ""))
+      }) {
+        Picker("", selection: $sensitiveContent) {
+          ForEach(SensitiveContent.Handling.allCases) { handling in
+            Text(handling.description)
+          }
+        }
+        .labelsHidden()
+        .frame(width: 220)
+        Text(NSLocalizedString(
+          "SensitiveContentDescription", tableName: "StorageSettings",
+          value: "Copies that look like passwords, API keys, card numbers or one-time codes. "
+            + "Copies from password managers are never saved.",
+          comment: ""
+        ))
+          .controlSize(.small)
+          .foregroundStyle(.gray)
+          .fixedSize(horizontal: false, vertical: true)
       }
 
       Settings.Section(label: { Text("SortBy", tableName: "StorageSettings") }) {

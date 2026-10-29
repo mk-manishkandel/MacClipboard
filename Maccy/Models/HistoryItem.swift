@@ -106,6 +106,9 @@ class HistoryItem {
 
   @Transient private var cachedDecodedImage: NSImage?
 
+  // Set when the copy looks like a password or other secret, see SensitiveContent.
+  @Transient var isSensitive = false
+
   init(contents: [HistoryItemContent] = []) {
     self.firstCopiedAt = firstCopiedAt
     self.lastCopiedAt = lastCopiedAt

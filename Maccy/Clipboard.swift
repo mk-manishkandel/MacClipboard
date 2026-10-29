@@ -226,7 +226,14 @@ class Clipboard {
       return
     }
 
+    let isSensitive = Defaults[.sensitiveContent] != .save &&
+      SensitiveContent.isSensitive(pasteboard.string(forType: .string))
+    if isSensitive && Defaults[.sensitiveContent] == .ignore {
+      return
+    }
+
     let historyItem = HistoryItem(contents: contents)
+    historyItem.isSensitive = isSensitive
 
     if #unavailable(macOS 15.0) {
       // On macOS 14 the history item needs to be inserted into storage directly after creating it.

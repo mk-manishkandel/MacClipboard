@@ -92,6 +92,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     updateStatusItemAccessibilityLabel()
 
     Task {
+      for await _ in Defaults.updates(.keepHistoryFor, initial: false) {
+        History.shared.removeExpired()
+      }
+    }
+
+    Task {
+      while !Task.isCancelled {
+        try? await Task.sleep(for: .seconds(15 * 60))
+        History.shared.removeExpired()
+      }
+    }
+
+    Task {
       for await _ in Defaults.updates(.ignoreEvents) {
         statusItem.button?.appearsDisabled = isStatusItemDisabled
         updateStatusItemAccessibilityLabel()

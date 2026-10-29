@@ -133,6 +133,7 @@ class History: ItemsContainer { // swiftlint:disable:this type_body_length
     filteredUnpinnedItems = allUnpinnedItems
 
     limitHistorySize(to: Defaults[.size])
+    removeExpired()
 
     updateShortcuts()
     // Ensure that panel size is proper *after* loading all items.
@@ -145,6 +146,26 @@ class History: ItemsContainer { // swiftlint:disable:this type_body_length
   private func limitHistorySize(to maxSize: Int) {
     if allUnpinnedItems.count >= maxSize {
       allUnpinnedItems[maxSize...].forEach(delete)
+    }
+  }
+
+  // Removes unpinned items last copied longer ago than the "Keep history for" setting.
+  @MainActor
+  func removeExpired() {
+    guard let interval = Defaults[.keepHistoryFor].interval else { return }
+
+    let cutoff = Date.now.addingTimeInterval(-interval)
+    allUnpinnedItems.filter { $0.item.lastCopiedAt < cutoff }.forEach(delete)
+  }
+
+  // Pinning a secret before the delay passes keeps it.
+  @MainActor
+  private func removeSensitive(_ item: HistoryItem, after delay: Duration) {
+    Task { @MainActor in
+      try? await Task.sleep(for: delay)
+      guard item.pin == nil, let decorator = allUnpinnedItems.first(where: { $0.item == item }) else { return }
+      logger.info("Removing sensitive item")
+      delete(decorator)
     }
   }
 
@@ -187,7 +208,7 @@ class History: ItemsContainer { // swiftlint:disable:this type_body_length
         }
       }
       deleteFromStorage(existingHistoryItem)
-    } else {
+    } else if !item.isSensitive {
       Task {
         Notifier.notify(body: item.title, sound: .write)
       }
@@ -196,6 +217,12 @@ class History: ItemsContainer { // swiftlint:disable:this type_body_length
     // Remove exceeding items. Do this after the item is added to avoid removing something
     // if a duplicate was found as then the size already stayed the same.
     limitHistorySize(to: item.pin == nil ? Defaults[.size] - 1 : Defaults[.size])
+
+    removeExpired()
+
+    if item.isSensitive {
+      removeSensitive(item, after: SensitiveContent.Handling.removalDelay)
+    }
 
     sessionLog[Clipboard.shared.changeCount] = item
 

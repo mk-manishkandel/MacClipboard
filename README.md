@@ -22,6 +22,10 @@
   <a href="https://github.com/mk-manishkandel/MacClipboard/actions/workflows/ci.yml"><img src="https://github.com/mk-manishkandel/MacClipboard/actions/workflows/ci.yml/badge.svg" alt="Build and test" /></a>
 </p>
 
+<p align="center">
+  <img src="docs/screenshots/history.jpg" width="800" alt="MacClipboard history popup with search and filter tabs" />
+</p>
+
 ## Why MacClipboard
 
 * **Never lose something you copied.** Every text, link, image and file you copy is saved in a searchable history.
@@ -126,6 +130,8 @@ MIT License, and is not affiliated with or endorsed by the Maccy project. See [C
 
   Options that would not change the item are hidden.
 
+  <img src="docs/screenshots/paste-as.jpg" width="700" alt="Right-click menu with Paste as options" />
+
 ### Snippets
 * Click the menu bar icon and choose **New Snippet…** to save text you paste often.
 * Snippets stay pinned at the top. **Clear** keeps them; only **Clear all** removes them.
@@ -139,6 +145,8 @@ MIT License, and is not affiliated with or endorsed by the Maccy project. See [C
 * **Keep history for** forever, 30 days, 7 days, 1 day or 1 hour. Pinned items and snippets are always kept.
 * Pause saving copies by <kbd>⌥</kbd>-clicking the menu bar icon.
 * No accounts, analytics or cloud sync.
+
+<img src="docs/screenshots/settings.jpg" width="700" alt="Settings, Storage pane with Keep history for and Passwords and secrets options" />
 
 ### Everyday use
 * Click the menu bar icon for a menu with **History**, **New Snippet…**, **Settings…**, **About** and **Quit**.

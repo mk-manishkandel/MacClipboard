@@ -70,6 +70,11 @@
     .card p { margin: 0; color: var(--muted); font-size: 16px; }
     .card .emoji { font-size: 26px; display: block; margin-bottom: 8px; }
 
+    .shots { display: grid; gap: 28px; }
+    .shots figure { margin: 0; }
+    .shots img { width: 100%; height: auto; display: block; border-radius: 14px; border: 1px solid var(--border); }
+    .shots figcaption { margin-top: 10px; color: var(--muted); font-size: 15px; text-align: center; }
+
     ol.steps { padding-left: 22px; margin: 0; }
     ol.steps li { margin-bottom: 12px; }
     ol.steps ul { margin: 8px 0 0; padding-left: 20px; color: var(--muted); }
@@ -111,6 +116,24 @@
       <a href="https://github.com/mk-manishkandel/MacClipboard">Source code</a>
     </div>
   </header>
+
+  <section>
+    <h2>See it in action</h2>
+    <div class="shots">
+      <figure>
+        <img src="screenshots/history.jpg" width="1600" height="1013" alt="MacClipboard history popup with search and filter tabs">
+        <figcaption>Press <kbd>⇧⌘C</kbd> to see everything you copied. Use the tabs to show only text, links, images, files or snippets.</figcaption>
+      </figure>
+      <figure>
+        <img src="screenshots/paste-as.jpg" width="1600" height="1013" alt="Right-click menu with Paste as options" loading="lazy">
+        <figcaption>Right-click any text to paste it as UPPERCASE, pretty JSON, a clean link and more.</figcaption>
+      </figure>
+      <figure>
+        <img src="screenshots/settings.jpg" width="1600" height="1013" alt="Settings, Storage pane" loading="lazy">
+        <figcaption>Choose how long to keep history and what happens to passwords and secrets.</figcaption>
+      </figure>
+    </div>
+  </section>
 
   <section>
     <h2>Why MacClipboard</h2>

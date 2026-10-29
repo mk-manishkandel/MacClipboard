@@ -9,16 +9,17 @@ extension SharedStateTests {
     let savedHighlightMatch = Defaults[.highlightMatch]
     let savedImageMaxHeight = Defaults[.imageMaxHeight]
 
-    var firstCopiedAt: Date! {
-      let formatter = DateFormatter()
-      formatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
-      return formatter.date(from: "2020/07/10 12:31:34")
-    }
+    var firstCopiedAt: Date! { Self.date("2020/07/10 12:31:34") }
+    var lastCopiedAt: Date! { Self.date("2020/07/10 12:41:34") }
 
-    var lastCopiedAt: Date! {
+    // A fixed POSIX locale keeps parsing independent of the Mac's region and
+    // 12/24-hour settings, which otherwise make the formatter return nil.
+    private static func date(_ string: String) -> Date? {
       let formatter = DateFormatter()
+      formatter.locale = Locale(identifier: "en_US_POSIX")
+      formatter.calendar = Calendar(identifier: .gregorian)
       formatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
-      return formatter.date(from: "2020/07/10 12:41:34")
+      return formatter.date(from: string)
     }
 
     init() {

@@ -231,6 +231,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     )
     history.setShortcut(for: .popup)
     menu.addItem(history)
+    menu.addItem(NSMenuItem(title: NSLocalizedString("new_snippet", value: "New Snippet…", comment: ""),
+                            action: #selector(newSnippet), keyEquivalent: ""))
     menu.addItem(.separator())
     menu.addItem(NSMenuItem(title: NSLocalizedString("preferences", comment: ""),
                             action: #selector(openPreferences), keyEquivalent: ","))
@@ -246,6 +248,38 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   @objc
   private func openHistory() {
     panel.open(height: AppState.shared.popup.height, at: .statusItem)
+  }
+
+  @objc
+  private func newSnippet() {
+    let alert = NSAlert()
+    alert.messageText = NSLocalizedString("new_snippet_title", value: "New snippet", comment: "")
+    alert.informativeText = NSLocalizedString(
+      "new_snippet_message",
+      value: "Snippets stay pinned at the top of your history, ready to paste any time.",
+      comment: ""
+    )
+
+    let scrollView = NSTextView.scrollableTextView()
+    scrollView.frame = NSRect(x: 0, y: 0, width: 320, height: 120)
+    scrollView.borderType = .bezelBorder
+    let textView = scrollView.documentView as? NSTextView
+    textView?.isRichText = false
+    textView?.font = .systemFont(ofSize: NSFont.systemFontSize)
+    alert.accessoryView = scrollView
+
+    alert.addButton(withTitle: NSLocalizedString("new_snippet_save", value: "Save", comment: ""))
+    alert.addButton(withTitle: NSLocalizedString("clear_alert_cancel", comment: ""))
+    alert.window.initialFirstResponder = textView
+
+    NSApp.activate(ignoringOtherApps: true)
+    guard alert.runModal() == .alertFirstButtonReturn,
+          let text = textView?.string,
+          !text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
+      return
+    }
+
+    History.shared.addSnippet(text)
   }
 
   @objc

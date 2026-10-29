@@ -250,6 +250,32 @@ class HistoryItem {
     return Int(modified)
   }
 
+  var isImage: Bool {
+    contents.contains { content in Self.imageTypes.contains(NSPasteboard.PasteboardType(content.type)) } ||
+      universalClipboardImage
+  }
+
+  var isFile: Bool {
+    !isImage && !universalClipboardText &&
+      contents.contains { $0.type == NSPasteboard.PasteboardType.fileURL.rawValue }
+  }
+
+  var isLink: Bool {
+    guard !isImage, !isFile else { return false }
+
+    let trimmed = title.trimmingCharacters(in: .whitespacesAndNewlines)
+    return (trimmed.hasPrefix("https://") || trimmed.hasPrefix("http://")) &&
+      !trimmed.contains(where: \.isWhitespace) && URL(string: trimmed) != nil
+  }
+
+  // Plain text that "Paste as" transforms can work on.
+  var transformableText: String? {
+    guard !isImage, !isFile else { return nil }
+
+    let text = text ?? rtf?.string ?? html?.string
+    return text?.isEmpty == false ? text : nil
+  }
+
   var fromMacClipboard: Bool { contentData([.fromMacClipboard]) != nil }
   var universalClipboard: Bool { contentData([.universalClipboard]) != nil }
 

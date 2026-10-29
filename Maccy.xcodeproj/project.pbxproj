@@ -51,6 +51,7 @@
 		C0FFEE000000000000000003 /* ShortenedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FFEE000000000000000004 /* ShortenedTests.swift */; };
 		C0FFEE0000000000000000A3 /* HistoryCipherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FFEE0000000000000000A4 /* HistoryCipherTests.swift */; };
 		C0FFEE0000000000000000B3 /* SensitiveContentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FFEE0000000000000000B4 /* SensitiveContentTests.swift */; };
+		C0FFEE0000000000000000C5 /* TextTransformTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FFEE0000000000000000C6 /* TextTransformTests.swift */; };
 		C5B760C9035C4B3594C47811 /* SizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC13FFCB59043F2883A4437 /* SizedString.swift */; };
 		CA110ED10000000000000001 /* CollectionSurroundingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA110ED10000000000000002 /* CollectionSurroundingTests.swift */; };
 		DA009931256411F90030E697 /* appcast.xml in Resources */ = {isa = PBXBuildFile; fileRef = DA00992C256411F90030E697 /* appcast.xml */; };
@@ -118,6 +119,8 @@
 		DA689FCC2C1D1D510009B887 /* MenuIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA689FCB2C1D1D510009B887 /* MenuIcon.swift */; };
 		DA689FCF2C1DEE570009B887 /* AppearanceSettings.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA689FCD2C1DEE570009B887 /* AppearanceSettings.strings */; };
 		DA696BCE240177E800DE80CF /* Sorter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA696BCD240177E800DE80CF /* Sorter.swift */; };
+		C0FFEE0000000000000000C3 /* TextTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FFEE0000000000000000C4 /* TextTransform.swift */; };
+		C0FFEE0000000000000000C1 /* HistoryFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FFEE0000000000000000C2 /* HistoryFilter.swift */; };
 		C0FFEE0000000000000000B1 /* SensitiveContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FFEE0000000000000000B2 /* SensitiveContent.swift */; };
 		DA696BD22401EEE900DE80CF /* SorterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA696BD12401EEE900DE80CF /* SorterTests.swift */; };
 		DA6D98E22AEABE03008A77CE /* Accessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6D98E12AEABE03008A77CE /* Accessibility.swift */; };
@@ -268,6 +271,7 @@
 		C0FFEE000000000000000004 /* ShortenedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortenedTests.swift; sourceTree = "<group>"; };
 		C0FFEE0000000000000000A4 /* HistoryCipherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCipherTests.swift; sourceTree = "<group>"; };
 		C0FFEE0000000000000000B4 /* SensitiveContentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensitiveContentTests.swift; sourceTree = "<group>"; };
+		C0FFEE0000000000000000C6 /* TextTransformTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTransformTests.swift; sourceTree = "<group>"; };
 		C2BC0DBD627544668E9BE9C1 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/StorageSettings.strings; sourceTree = "<group>"; };
 		CA110ED10000000000000002 /* CollectionSurroundingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionSurroundingTests.swift; sourceTree = "<group>"; };
 		CF8FD822BE40469D80B10A06 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/AdvancedSettings.strings; sourceTree = "<group>"; };
@@ -443,6 +447,8 @@
 		DA689FE02C1DEE6B0009B887 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/AppearanceSettings.strings; sourceTree = "<group>"; };
 		DA689FE12C1DEE6C0009B887 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/AppearanceSettings.strings; sourceTree = "<group>"; };
 		DA696BCD240177E800DE80CF /* Sorter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sorter.swift; sourceTree = "<group>"; };
+		C0FFEE0000000000000000C4 /* TextTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTransform.swift; sourceTree = "<group>"; };
+		C0FFEE0000000000000000C2 /* HistoryFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryFilter.swift; sourceTree = "<group>"; };
 		C0FFEE0000000000000000B2 /* SensitiveContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensitiveContent.swift; sourceTree = "<group>"; };
 		DA696BD12401EEE900DE80CF /* SorterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SorterTests.swift; sourceTree = "<group>"; };
 		DA6D98E12AEABE03008A77CE /* Accessibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accessibility.swift; sourceTree = "<group>"; };
@@ -781,6 +787,7 @@
 				C0FFEE000000000000000004 /* ShortenedTests.swift */,
 				C0FFEE0000000000000000A4 /* HistoryCipherTests.swift */,
 				C0FFEE0000000000000000B4 /* SensitiveContentTests.swift */,
+				C0FFEE0000000000000000C6 /* TextTransformTests.swift */,
 				FFFC00000000000000000004 /* UnsafeForTitleLayoutTests.swift */,
 				DAE2850123225BD90080E394 /* ColorImageTests.swift */,
 				DA360DB21E3DF137005C6F6B /* HistoryTests.swift */,
@@ -908,6 +915,8 @@
 				2F0EC77C2E773314003E2EA9 /* Selection.swift */,
 				DAA5ACC92C1BEE8A00B58513 /* SoftwareUpdater.swift */,
 				DA696BCD240177E800DE80CF /* Sorter.swift */,
+				C0FFEE0000000000000000C4 /* TextTransform.swift */,
+				C0FFEE0000000000000000C2 /* HistoryFilter.swift */,
 				C0FFEE0000000000000000B2 /* SensitiveContent.swift */,
 				DA243D132C2F66DD0012A27F /* Storage.swift */,
 				DA81D673252A056B009977BC /* Throttler.swift */,
@@ -1139,6 +1148,7 @@
 				C0FFEE000000000000000003 /* ShortenedTests.swift in Sources */,
 				C0FFEE0000000000000000A3 /* HistoryCipherTests.swift in Sources */,
 				C0FFEE0000000000000000B3 /* SensitiveContentTests.swift in Sources */,
+				C0FFEE0000000000000000C5 /* TextTransformTests.swift in Sources */,
 				FFFC00000000000000000003 /* UnsafeForTitleLayoutTests.swift in Sources */,
 				DA360DB31E3DF137005C6F6B /* HistoryTests.swift in Sources */,
 			);
@@ -1220,6 +1230,8 @@
 				DAA072E32C41D1D5006DDFD2 /* ListItemView.swift in Sources */,
 				DAA072D92C41C5AD006DDFD2 /* Footer.swift in Sources */,
 				DA696BCE240177E800DE80CF /* Sorter.swift in Sources */,
+				C0FFEE0000000000000000C3 /* TextTransform.swift in Sources */,
+				C0FFEE0000000000000000C1 /* HistoryFilter.swift in Sources */,
 				C0FFEE0000000000000000B1 /* SensitiveContent.swift in Sources */,
 				DAA072E92C42C6AA006DDFD2 /* ListItemTitleView.swift in Sources */,
 				DABDE97F2974706C005B32E9 /* KeyboardLayout.swift in Sources */,

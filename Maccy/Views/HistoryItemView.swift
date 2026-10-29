@@ -59,6 +59,26 @@ struct HistoryItemView: View {
     }
     .accessibilityIdentifier("copy-history-item")
     .buttonAction(performSelect)
+    .contextMenu {
+      if let text = item.item.transformableText {
+        Menu(NSLocalizedString("paste_as", value: "Paste as", comment: "")) {
+          ForEach(TextTransform.allCases) { transform in
+            if let result = transform.apply(to: text) {
+              Button(transform.title) {
+                appState.history.paste(text: result)
+              }
+            }
+          }
+        }
+        Divider()
+      }
+      Button(item.isPinned ? "history_item_unpin_action" : "history_item_pin_action") {
+        appState.history.togglePin(item)
+      }
+      Button("history_item_delete_action", role: .destructive) {
+        appState.history.delete(item)
+      }
+    }
     .onAppear {
       item.ensureThumbnailImage()
     }

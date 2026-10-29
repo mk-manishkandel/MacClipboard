@@ -12,33 +12,47 @@ struct HeaderView: View {
   }
 
   var body: some View {
-    HStack(alignment: .top, spacing: 0) {
-      HStack(alignment: .center, spacing: 0) {
-        ListHeaderView(
-          searchFocused: $searchFocused,
-          searchQuery: $appState.history.searchQuery
-        )
-        .padding(.horizontal, Popup.horizontalPadding)
-
-        ToolbarButton {
-          controller.togglePreview()
-        } label: {
-          Image(
-            systemName: previewPlacement == .right
-              ? "sidebar.left" : "sidebar.right"
+    VStack(spacing: 6) {
+      HStack(alignment: .top, spacing: 0) {
+        HStack(alignment: .center, spacing: 0) {
+          ListHeaderView(
+            searchFocused: $searchFocused,
+            searchQuery: $appState.history.searchQuery
           )
+          .padding(.horizontal, Popup.horizontalPadding)
+
+          ToolbarButton {
+            controller.togglePreview()
+          } label: {
+            Image(
+              systemName: previewPlacement == .right
+                ? "sidebar.left" : "sidebar.right"
+            )
+          }
+          .shortcutKeyHelp(
+            name: .togglePreview,
+            key: controller.state.isOpen ? "ClosePreview" : "OpenPreview",
+            tableName: "PreviewItemView",
+            replacementKey: "previewKey"
+          )
+          .padding(.trailing, Popup.horizontalPadding)
         }
-        .shortcutKeyHelp(
-          name: .togglePreview,
-          key: controller.state.isOpen ? "ClosePreview" : "OpenPreview",
-          tableName: "PreviewItemView",
-          replacementKey: "previewKey"
-        )
-        .padding(.trailing, Popup.horizontalPadding)
+        .opacity(appState.searchVisible ? 1 : 0)
+        .accessibilityHidden(!appState.searchVisible)
+        .layoutPriority(1)
       }
+
+      Picker("", selection: $appState.history.typeFilter) {
+        ForEach(HistoryFilter.allCases) { filter in
+          Text(filter.title).tag(filter)
+        }
+      }
+      .pickerStyle(.segmented)
+      .labelsHidden()
+      .controlSize(.small)
+      .padding(.horizontal, Popup.horizontalPadding)
       .opacity(appState.searchVisible ? 1 : 0)
       .accessibilityHidden(!appState.searchVisible)
-      .layoutPriority(1)
     }
     .padding(.top, Popup.verticalPadding)
     .padding(.horizontal, 10)

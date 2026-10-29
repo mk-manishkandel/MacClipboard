@@ -24,10 +24,21 @@ class History: ItemsContainer { // swiftlint:disable:this type_body_length
     }
   }
   var pinnedItems: [HistoryItemDecorator] {
-    searchQuery.isEmpty ? allPinnedItems : filteredPinnedItems
+    let items = searchQuery.isEmpty ? allPinnedItems : filteredPinnedItems
+    return typeFilter == .all ? items : items.filter(typeFilter.includes)
   }
   var unpinnedItems: [HistoryItemDecorator] {
-    searchQuery.isEmpty ? allUnpinnedItems : filteredUnpinnedItems
+    let items = searchQuery.isEmpty ? allUnpinnedItems : filteredUnpinnedItems
+    return typeFilter == .all ? items : items.filter(typeFilter.includes)
+  }
+
+  var typeFilter: HistoryFilter = .all {
+    didSet {
+      guard typeFilter != oldValue else { return }
+      updateUnpinnedShortcuts()
+      AppState.shared.navigator.highlightFirst()
+      AppState.shared.popup.needsResize = true
+    }
   }
   var availablePins: [String] { pinManager.availablePins }
 
@@ -512,6 +523,31 @@ class History: ItemsContainer { // swiftlint:disable:this type_body_length
     if item.isUnpinned {
       AppState.shared.navigator.scrollTarget = item.id
     }
+  }
+
+  // Snippets are pinned items created from typed text instead of a copy.
+  @MainActor
+  func addSnippet(_ text: String) {
+    let item = HistoryItem(contents: [
+      HistoryItemContent(type: NSPasteboard.PasteboardType.string.rawValue, value: Data(text.utf8))
+    ])
+    if #unavailable(macOS 15.0) {
+      try? insertIntoStorage(item)
+    }
+    item.application = Bundle.main.bundleIdentifier
+    item.title = item.generateTitle()
+
+    let decorator = add(item)
+    if decorator.isUnpinned {
+      togglePin(decorator)
+    }
+  }
+
+  @MainActor
+  func paste(text: String) {
+    AppState.shared.popup.close()
+    Clipboard.shared.copyInMacClipboard(text)
+    Clipboard.shared.paste()
   }
 
   @MainActor

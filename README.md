@@ -237,5 +237,5 @@ and is distributed under the [MIT License](LICENSE). "Maccy" is the name of the 
 only to credit it. MacClipboard has its own name, icon and bundle identifier, and is not affiliated with
 or endorsed by the Maccy project.
 
-Translations come from the Maccy community. Third-party libraries and their licenses are listed in
+MacClipboard is available in English. Third-party libraries and their licenses are listed in
 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).

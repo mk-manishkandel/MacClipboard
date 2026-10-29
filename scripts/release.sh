@@ -4,8 +4,9 @@
 # Usage: scripts/release.sh <version> "<release notes>"
 # Example: scripts/release.sh 2.8.1 "Fixed a crash when pasting images."
 #
-# Requires: Xcode, gh (logged in), and the Sparkle EdDSA private key in your login
-# Keychain under the account "MacClipboard" (created by generate_keys).
+# Requires: Xcode, gh (logged in), the Sparkle EdDSA private key in your login Keychain under
+# the account "MacClipboard" (created by generate_keys), and the "MacClipboard Code Signing"
+# identity (created by scripts/create-signing-identity.sh).
 set -euo pipefail
 
 VERSION="${1:?usage: scripts/release.sh <version> \"<release notes>\"}"
@@ -44,7 +45,12 @@ xcodebuild -project Maccy.xcodeproj -scheme Maccy -configuration Release \
 APP="build/Build/Products/Release/MacClipboard.app"
 # The MIT and third-party licenses require their notices to ship with every copy of the app.
 cp LICENSE THIRD_PARTY_NOTICES.md "$APP/Contents/Resources/"
-codesign --force --sign - --preserve-metadata=entitlements,requirements,flags,runtime "$APP"
+# A stable signing identity keeps Accessibility and Keychain access granted across updates.
+if ! security find-identity -v -p codesigning | grep -q '"MacClipboard Code Signing"'; then
+  echo "Missing \"MacClipboard Code Signing\" identity. Run scripts/create-signing-identity.sh first." >&2
+  exit 1
+fi
+scripts/sign-app.sh "$APP"
 rm -rf "$WORK" && mkdir -p "$WORK"
 ZIP="$WORK/MacClipboard-$VERSION.zip"
 ditto -c -k --sequesterRsrc --keepParent "$APP" "$ZIP"

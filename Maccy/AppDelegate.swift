@@ -173,6 +173,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
       _ = try? Storage.shared.removeUnpersistableContents()
     }
 
+    ensureMigration(key: "2026-10-29-encrypt-history") {
+      _ = try? Storage.shared.encryptPlaintextRows()
+    }
+
     // The following defaults are not used since Maccy 2.x
     // and should be removed in 3.x.
     // - LaunchAtLogin__hasMigrated

@@ -79,7 +79,27 @@ class HistoryItem {
   var lastCopiedAt: Date = Date.now
   var numberOfCopies: Int = 1
   var pin: String?
-  var title = ""
+
+  // Encrypted on disk by HistoryCipher. Read and write plaintext through `title`.
+  @Attribute(originalName: "title")
+  var sealedTitle = ""
+
+  @Transient private var openedTitle: String?
+
+  var title: String {
+    get {
+      if let openedTitle {
+        return openedTitle
+      }
+      let title = HistoryCipher.open(sealedTitle)
+      openedTitle = title
+      return title
+    }
+    set {
+      openedTitle = newValue
+      sealedTitle = HistoryCipher.seal(newValue)
+    }
+  }
 
   @Relationship(deleteRule: .cascade, inverse: \HistoryItemContent.item)
   var contents: [HistoryItemContent] = []

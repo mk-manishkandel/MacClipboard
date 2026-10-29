@@ -16,6 +16,8 @@ MacClipboard works on macOS Sonoma 14 or higher.
 
 * Clipboard history is stored **only on your Mac**, inside the app's sandbox container:
   `~/Library/Containers/com.mkmanishkandel.MacClipboard/Data/Library/Application Support/MacClipboard/Storage.sqlite`.
+* The copied contents and titles in that database are **encrypted with AES-256-GCM**. The key is generated on first
+  launch and kept in your login Keychain, so the file is unreadable to other apps, backups or anyone who copies it.
 * There is no analytics, telemetry, crash reporting or cloud sync.
 * The only network request the app makes is the optional update check. It downloads
   [`appcast.xml`](appcast.xml) from this repository and, if you accept an update, the release zip from GitHub Releases.
@@ -152,6 +154,19 @@ open build/Build/Products/Release
 The Xcode project, targets and source folders keep their upstream `Maccy` names so upstream fixes can be merged easily.
 
 ## Publishing a release (maintainers)
+
+One-time setup on the machine you release from:
+
+```sh
+scripts/create-signing-identity.sh
+```
+
+This creates a self-signed "MacClipboard Code Signing" certificate in your login Keychain and saves a backup `.p12`
+on your Desktop. Every release is signed with it, so the app's signature stays the same between versions and macOS
+keeps the Accessibility permission and Keychain access granted after updates. Keep the backup safe: a release signed
+with a different certificate makes every user grant Accessibility again.
+
+Then, for each release:
 
 ```sh
 scripts/release.sh 2.8.1 "What changed in this version."

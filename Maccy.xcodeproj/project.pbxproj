@@ -49,6 +49,7 @@
 		9B24FC30A093450F29E2CC4A /* View+Invisible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC045710F4F8773D1A5EC87 /* View+Invisible.swift */; };
 		A9E31C79AD944C78BE9DF2F5 /* LargeTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBCCA6C3F9374C9C91414E3A /* LargeTextView.swift */; };
 		C0FFEE000000000000000003 /* ShortenedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FFEE000000000000000004 /* ShortenedTests.swift */; };
+		C0FFEE0000000000000000A3 /* HistoryCipherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FFEE0000000000000000A4 /* HistoryCipherTests.swift */; };
 		C5B760C9035C4B3594C47811 /* SizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC13FFCB59043F2883A4437 /* SizedString.swift */; };
 		CA110ED10000000000000001 /* CollectionSurroundingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA110ED10000000000000002 /* CollectionSurroundingTests.swift */; };
 		DA009931256411F90030E697 /* appcast.xml in Resources */ = {isa = PBXBuildFile; fileRef = DA00992C256411F90030E697 /* appcast.xml */; };
@@ -58,6 +59,7 @@
 		DA009955256414E60030E697 /* KeyboardShortcuts in Frameworks */ = {isa = PBXBuildFile; productRef = DA009954256414E60030E697 /* KeyboardShortcuts */; };
 		DA05B5112C234CB2006980FE /* MaccyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA05B5102C234CB1006980FE /* MaccyApp.swift */; };
 		DA05B5142C234DCF006980FE /* HistoryItemContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA05B5122C234DCF006980FE /* HistoryItemContent.swift */; };
+		C0FFEE0000000000000000A1 /* HistoryCipher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FFEE0000000000000000A2 /* HistoryCipher.swift */; };
 		DA05B5152C234DCF006980FE /* HistoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA05B5132C234DCF006980FE /* HistoryItem.swift */; };
 		DA083A6E2C42E8E8004259A0 /* NSImage+Resized.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA083A6D2C42E8E8004259A0 /* NSImage+Resized.swift */; };
 		DA0EE7B9204657830025FC60 /* MaccyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0EE7B8204657830025FC60 /* MaccyUITests.swift */; };
@@ -262,6 +264,7 @@
 		BBCCA6C3F9374C9C91414E3A /* LargeTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeTextView.swift; sourceTree = "<group>"; };
 		BC59C5474269463B8A32BCEF /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/AppearanceSettings.strings; sourceTree = "<group>"; };
 		C0FFEE000000000000000004 /* ShortenedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortenedTests.swift; sourceTree = "<group>"; };
+		C0FFEE0000000000000000A4 /* HistoryCipherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCipherTests.swift; sourceTree = "<group>"; };
 		C2BC0DBD627544668E9BE9C1 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/StorageSettings.strings; sourceTree = "<group>"; };
 		CA110ED10000000000000002 /* CollectionSurroundingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionSurroundingTests.swift; sourceTree = "<group>"; };
 		CF8FD822BE40469D80B10A06 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/AdvancedSettings.strings; sourceTree = "<group>"; };
@@ -270,6 +273,7 @@
 		DA00992F256411F90030E697 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		DA05B5102C234CB1006980FE /* MaccyApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaccyApp.swift; sourceTree = "<group>"; };
 		DA05B5122C234DCF006980FE /* HistoryItemContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryItemContent.swift; sourceTree = "<group>"; };
+		C0FFEE0000000000000000A2 /* HistoryCipher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCipher.swift; sourceTree = "<group>"; };
 		DA05B5132C234DCF006980FE /* HistoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryItem.swift; sourceTree = "<group>"; };
 		DA083A6D2C42E8E8004259A0 /* NSImage+Resized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSImage+Resized.swift"; sourceTree = "<group>"; };
 		DA08FDE7282596FA0001F3DA /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -688,6 +692,7 @@
 			children = (
 				DA05B5132C234DCF006980FE /* HistoryItem.swift */,
 				DA05B5122C234DCF006980FE /* HistoryItemContent.swift */,
+				C0FFEE0000000000000000A2 /* HistoryCipher.swift */,
 				DFC13FFCB59043F2883A4437 /* SizedString.swift */,
 			);
 			path = Models;
@@ -770,6 +775,7 @@
 				DA3CE7FF1E44A62500B3AA98 /* ClipboardTests.swift */,
 				CA110ED10000000000000002 /* CollectionSurroundingTests.swift */,
 				C0FFEE000000000000000004 /* ShortenedTests.swift */,
+				C0FFEE0000000000000000A4 /* HistoryCipherTests.swift */,
 				FFFC00000000000000000004 /* UnsafeForTitleLayoutTests.swift */,
 				DAE2850123225BD90080E394 /* ColorImageTests.swift */,
 				DA360DB21E3DF137005C6F6B /* HistoryTests.swift */,
@@ -1125,6 +1131,7 @@
 				DA696BD22401EEE900DE80CF /* SorterTests.swift in Sources */,
 				CA110ED10000000000000001 /* CollectionSurroundingTests.swift in Sources */,
 				C0FFEE000000000000000003 /* ShortenedTests.swift in Sources */,
+				C0FFEE0000000000000000A3 /* HistoryCipherTests.swift in Sources */,
 				FFFC00000000000000000003 /* UnsafeForTitleLayoutTests.swift in Sources */,
 				DA360DB31E3DF137005C6F6B /* HistoryTests.swift in Sources */,
 			);
@@ -1199,6 +1206,7 @@
 				DA555F082CF0F994009608BD /* ApplicationImageCache.swift in Sources */,
 				DA44C5E42C1C858400819834 /* StorageSettingsPane.swift in Sources */,
 				DA05B5142C234DCF006980FE /* HistoryItemContent.swift in Sources */,
+				C0FFEE0000000000000000A1 /* HistoryCipher.swift in Sources */,
 				DAA072D32C40A961006DDFD2 /* Color+Random.swift in Sources */,
 				DA05B5152C234DCF006980FE /* HistoryItem.swift in Sources */,
 				C5B760C9035C4B3594C47811 /* SizedString.swift in Sources */,
